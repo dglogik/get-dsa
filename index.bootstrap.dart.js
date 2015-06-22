@@ -7638,7 +7638,7 @@ function HL(a,b){if(a===1){v=b
 z=w}while(true)switch(z){case 0:k=J
 j=C.xr
 z=3
-return H.U(W.Kn("http://iot-dsa.github.io/dists/dists.json",null,null),HL,y)
+return H.U(W.Kn("https://iot-dsa.github.io/dists/dists.json",null,null),HL,y)
 case 3:u=k.Tf(j.kV(b),"dists")
 t=[]
 for(s=J.RE(u),r=J.Nx(s.gvc(u));r.D();){q=r.gk()
@@ -7656,7 +7656,7 @@ Xt:function(){var z=0,y=new P.Z(),x,w=2,v,u
 function Xt(a,b){if(a===1){v=b
 z=w}while(true)switch(z){case 0:u=C.xr
 z=3
-return H.U(W.Kn("http://iot-dsa.github.io/links/links.json",null,null),Xt,y)
+return H.U(W.Kn("https://iot-dsa.github.io/links/links.json",null,null),Xt,y)
 case 3:x=u.kV(b)
 z=1
 break

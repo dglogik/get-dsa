@@ -9948,7 +9948,7 @@ function PO(a,b){if(a===1){v=b
 z=w}while(true)switch(z){case 0:k=J
 j=C.xr
 z=3
-return H.AZ(W.Kn("http://iot-dsa.github.io/dists/dists.json",null,null),PO,y)
+return H.AZ(W.Kn("https://iot-dsa.github.io/dists/dists.json",null,null),PO,y)
 case 3:u=k.Tf(j.kV(b),"dists")
 t=[]
 for(s=J.RE(u),r=J.Nx(s.gvc(u));r.D();){q=r.gk()
@@ -9966,7 +9966,7 @@ Xt:function(){var z=0,y=new P.Zh(),x,w=2,v,u
 function Xt(a,b){if(a===1){v=b
 z=w}while(true)switch(z){case 0:u=C.xr
 z=3
-return H.AZ(W.Kn("http://iot-dsa.github.io/links/links.json",null,null),Xt,y)
+return H.AZ(W.Kn("https://iot-dsa.github.io/links/links.json",null,null),Xt,y)
 case 3:x=u.kV(b)
 z=1
 break
@@ -10013,7 +10013,7 @@ Tx:{
 cM:function(a){var z=0,y=new P.Zh(),x,w=2,v,u=this,t
 function cM(b,c){if(b===1){v=c
 z=w}while(true)switch(z){case 0:z=3
-return H.AZ(K.tp("http://iot-dsa.github.io/dists/"+H.d(u.Q)+"/"+H.d(u.b)+"/"+H.d(u.c)),cM,y)
+return H.AZ(K.tp("https://iot-dsa.github.io/dists/"+H.d(u.Q)+"/"+H.d(u.b)+"/"+H.d(u.c)),cM,y)
 case 3:t=c
 z=4
 return H.AZ(null,cM,y)
