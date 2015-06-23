@@ -4664,7 +4664,7 @@ html /deep/ .paper-shadow-bottom-z-5 {
       <h1 class="text-center">Welcome to Get DSA</h1>
       <div self-center="">
         <p>Get DSA provides tools that help you get started with DSA quickly</p>
-        <paper-button flex="" class="build-pkg-btn" on-tap="{{buildPackage}}">Build a Package</paper-button>
+        <paper-button raised="" flex="" class="build-pkg-btn" on-tap="{{buildPackage}}">Build a Package</paper-button>
       </div>
     </div>
   </template>
@@ -7767,6 +7767,319 @@ in another form (e.g. a text block following the spinner).
 
 
 
+<script>
+// This empty script is here to workaround issue
+// https://github.com/dart-lang/core-elements/issues/11
+</script>
+
+
+<script>
+// This empty script is here to workaround issue
+// https://github.com/dart-lang/core-elements/issues/11
+</script>
+
+<polymer-element name="paper-toast" attributes="text duration opened responsiveWidth swipeDisabled autoCloseDisabled" role="status">
+
+<template>
+
+  <style>/*
+Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+*/
+
+:host {
+  display: inline-block;
+  background: #323232;
+  color: #f1f1f1;
+  min-height: 48px;
+  min-width: 288px;
+  padding: 16px 24px 12px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  border-radius: 2px;
+  bottom: 12px;
+  left: 12px;
+  font-size: 14px;
+  cursor: default;
+}
+
+:host(.capsule) {
+  border-radius: 24px;
+}
+
+:host(.fit-bottom) {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  min-width: 0;
+  border-radius: 0;
+}
+
+:host(.core-transition.dragging) {
+  transition: none;
+}
+
+:host(.core-transition.fade-out-down),
+:host(.core-transition.fade-out-up),
+:host(.core-transition.fade-out-right),
+:host(.core-transition.fade-out-left) {
+  opacity: 0;
+  transition: -webkit-transform 0.08s ease-in-out, opacity 0.08s ease-in-out;
+  transition: transform 0.08s ease-in-out, opacity 0.08s ease-in-out;
+}
+
+:host(.core-transition.fade-out-down) {
+  -webkit-transform: translate(0, 100%);
+  transform: translate(0, 100%);
+}
+
+:host(.core-transition.fade-out-up) {
+  -webkit-transform: translate(0, -100%);
+  transform: translate(0, -100%);
+}
+
+:host(.core-transition.fade-out-right) {
+  -webkit-transform: translate(100%, 0);
+  transform: translate(100%, 0);
+}
+
+:host(.core-transition.fade-out-left) {
+  -webkit-transform: translate(-100%, 0);
+  transform: translate(-100%, 0);
+}
+
+.toast-container {
+  overflow: hidden;
+}
+
+.toast-action {
+  padding-left: 24px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+</style>
+
+  <core-overlay id="overlay" autofocusdisabled="" autoclosedisabled="{{autoCloseDisabled}}" opened="{{opened}}" target="{{}}" transition="core-transition-bottom"></core-overlay>
+
+  <div class="toast-container" horizontal="" layout="">
+
+    <div class="toast-text" flex="">{{text}}</div>
+    
+    <div class="toast-text toast-action" on-tap="{{dismiss}}">
+      <content></content>
+    </div>
+
+  </div>
+  
+  <core-media-query query="max-width: {{responsiveWidth}}" querymatches="{{narrowMode}}"></core-media-query>
+
+</template>
+<script>
+
+  (function() {
+  
+    var currentToast;
+  
+    Polymer('paper-toast', {
+  
+      /**
+       * The text shows in a toast.
+       *
+       * @attribute text
+       * @type string
+       * @default ''
+       */
+      text: '',
+      
+      /**
+       * The duration in milliseconds to show the toast.
+       *
+       * @attribute duration
+       * @type number
+       * @default 3000
+       */
+      duration: 3000,
+      
+      /**
+       * Set opened to true to show the toast and to false to hide it.
+       *
+       * @attribute opened
+       * @type boolean
+       * @default false
+       */
+      opened: false,
+      
+      /**
+       * Min-width when the toast changes to narrow layout.  In narrow layout,
+       * the toast fits at the bottom of the screen when opened.
+       *
+       * @attribute responsiveWidth
+       * @type string
+       * @default '480px'
+       */
+      responsiveWidth: '480px',
+      
+      /**
+       * If true, the toast can't be swiped.
+       *
+       * @attribute swipeDisabled
+       * @type boolean
+       * @default false
+       */
+      swipeDisabled: false,
+      
+      /**
+       * By default, the toast will close automatically if the user taps
+       * outside it or presses the escape key. Disable this behavior by setting
+       * the `autoCloseDisabled` property to true.
+       *
+       * @attribute autoCloseDisabled
+       * @type boolean
+       * @default false
+       */
+      autoCloseDisabled: false,
+      
+      narrowMode: false,
+      
+      eventDelegates: {
+        trackstart: 'trackStart',
+        track: 'track',
+        trackend: 'trackEnd',
+        transitionend: 'transitionEnd'
+      },
+      
+      narrowModeChanged: function() {
+        this.classList.toggle('fit-bottom', this.narrowMode);
+        if (this.opened) {
+          this.$.overlay.resizeHandler();
+        }
+      },
+      
+      openedChanged: function() {
+        if (this.opened) {
+          this.dismissJob = this.job(this.dismissJob, this.dismiss, this.duration);
+        } else {
+          this.dismissJob && this.dismissJob.stop();
+          this.dismiss();
+        }
+      },
+      
+      /** 
+       * Toggle the opened state of the toast.
+       * @method toggle
+       */
+      toggle: function() {
+        this.opened = !this.opened;
+      },
+      
+      /** 
+       * Show the toast for the specified duration
+       * @method show
+       */
+      show: function() {
+        if (currentToast) {
+          currentToast.dismiss();
+        }
+        currentToast = this;
+        this.opened = true;
+      },
+      
+      /** 
+       * Dismiss the toast and hide it.
+       * @method dismiss
+       */
+      dismiss: function() {
+        if (this.dragging) {
+          this.shouldDismiss = true;
+        } else {
+          this.opened = false;
+          if (currentToast === this) {
+            currentToast = null;
+          }
+        }
+      },
+      
+      trackStart: function(e) {
+        if (!this.swipeDisabled) {
+          e.preventTap();
+          this.vertical = e.yDirection;
+          this.w = this.offsetWidth;
+          this.h = this.offsetHeight;
+          this.dragging = true;
+          this.classList.add('dragging');
+        }
+      },
+      
+      track: function(e) {
+        if (this.dragging) {
+          var s = this.style;
+          if (this.vertical) {
+            var y = e.dy;
+            s.opacity = (this.h - Math.abs(y)) / this.h;
+            s.transform = s.webkitTransform = 'translate3d(0, ' + y + 'px, 0)';
+          } else {
+            var x = e.dx;
+            s.opacity = (this.w - Math.abs(x)) / this.w;
+            s.transform = s.webkitTransform = 'translate3d(' + x + 'px, 0, 0)';
+          }
+        }
+      },
+      
+      trackEnd: function(e) {
+        if (this.dragging) {
+          this.classList.remove('dragging');
+          this.style.opacity = '';
+          this.style.transform = this.style.webkitTransform = '';
+          var cl = this.classList;
+          if (this.vertical) {
+            cl.toggle('fade-out-down', e.yDirection === 1 && e.dy > 0);
+            cl.toggle('fade-out-up', e.yDirection === -1 && e.dy < 0);
+          } else {
+            cl.toggle('fade-out-right', e.xDirection === 1 && e.dx > 0);
+            cl.toggle('fade-out-left', e.xDirection === -1 && e.dx < 0);
+          }
+          this.dragging = false;
+        }
+      },
+      
+      transitionEnd: function() {
+        var cl = this.classList;
+        if (cl.contains('fade-out-right') || cl.contains('fade-out-left') || 
+            cl.contains('fade-out-down') || cl.contains('fade-out-up')) {
+          this.dismiss();
+          cl.remove('fade-out-right', 'fade-out-left', 
+              'fade-out-down', 'fade-out-up');
+        } else if (this.shouldDismiss) {
+          this.dismiss();
+        }
+        this.shouldDismiss = false;
+      }
+  
+    });
+    
+  })();
+
+</script>
+</polymer-element>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -8138,7 +8451,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         <core-label horizontal="" layout="" class="bottom-padding-twenty">
           <div vertical="" layout="">
-            <h4 field-name="">Links</h4>
+            <div field-name="">
+              <h4>Links</h4>
+              <br>
+              <br>
+              <div horizontal="" layout="" center="" center-justified="">
+                <paper-button on-tap="{{selectAllLinks}}" raised="">Select All</paper-button>
+              </div>
+            </div>
           </div>
           <div vertical="" layout="" class="scroll-heighted">
             <template repeat="{{link in links}}">
@@ -8152,7 +8472,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           </div>
         </core-label>
 
-        <paper-button on-tap="{{createDistPackage}}">Build Package</paper-button>
+        <paper-button raised="" on-tap="{{createDistPackage}}">Build Package</paper-button>
         <div horizontal="" center-justified="" layout="">
           <paper-spinner inline-block="" self-center="" id="spinner"></paper-spinner>
           <span>&nbsp;</span>
@@ -8254,10 +8574,6 @@ core-header-panel /deep/ #dropShadow {
 
 
 
-<script>
-// This empty script is here to workaround issue
-// https://github.com/dart-lang/core-elements/issues/11
-</script>
 
 
 <polymer-element name="paper-dialog-base" extends="core-overlay" role="dialog" on-core-overlay-open="{{openAction}}">
