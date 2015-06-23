@@ -9650,7 +9650,7 @@ C.eF.LX(a)
 C.eF.XI(a)
 return a}}}}],["","",,R,{
 "^":"",
-BZ:function(a,b,c,d,e,f){var z,y,x,w,v,u,t,s,r,q
+BZ:function(a,b,c,d,e,f){var z,y,x,w,v,u,t,s,r,q,p
 z=[]
 C.Nm.FV(z,J.kl(J.aQ(b),new R.M9(a)))
 y=J.RE(c)
@@ -9661,13 +9661,18 @@ w=x.gFt()
 v=J.RE(w)
 if(J.d0(v.gIR(w),new R.E8()))J.kH(v.gIR(w),new R.lJ())
 J.kH(v.gIR(w),new R.Rk(a,x))
-C.Nm.FV(z,v.gIR(w))}if(f!=null)for(y=J.Nx(f),v=e!=="linux",u=e==="mac";y.D();){t=y.gk()
-if(!v||u){s=C.xM.gZE().WJ("#!/usr/bin/env bash\n$(dirname $0)/../../dart-sdk/bin/dart ${0%.sh}.dart ${@}\n")
-r=new T.Cg(H.d(a)+"/bin/"+H.d(t)+".sh",s.length,null,0,0,null,!0,null,null,!0,0,null,null)
-q=H.RB(s,"$isWO",[P.KN],"$asWO")
-if(q){r.cx=s
-r.ch=T.bQ(s,0,null,0)}r.b=777
-z.push(r)}}return new T.lu(z,null)},
+C.Nm.FV(z,v.gIR(w))}if(f!=null)for(y=J.Nx(f),v=e==="windows",u=e!=="linux",t=e==="mac";y.D();){s=y.gk()
+if(!u||t){r=C.xM.gZE().WJ("#!/usr/bin/env bash\n$(dirname $0)/../../dart-sdk/bin/dart ${0%.sh}.dart ${@}\n")
+q=new T.Cg(H.d(a)+"/bin/"+H.d(s)+".sh",r.length,null,0,0,null,!0,null,null,!0,0,null,null)
+p=H.RB(r,"$isWO",[P.KN],"$asWO")
+if(p){q.cx=r
+q.ch=T.bQ(r,0,null,0)}q.b=777
+z.push(q)}else if(v){r=C.xM.gZE().WJ("@echo off\nset me=%~f0\nset me=%me:~0,-4%\n%~0\\..\\..\\..\\dart-sdk\\bin\\dart.exe %me%.dart %*\n")
+q=new T.Cg(H.d(a)+"/bin/"+H.d(s)+".bat",r.length,null,0,0,null,!0,null,null,!0,0,null,null)
+p=H.RB(r,"$isWO",[P.KN],"$asWO")
+if(p){q.cx=r
+q.ch=T.bQ(r,0,null,0)}q.b=777
+z.push(q)}}return new T.lu(z,null)},
 Un:{
 "^":"a;oc:Q>,Ft:a<",
 ia:function(){var z,y
