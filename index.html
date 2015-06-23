@@ -8400,6 +8400,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         padding-bottom: 20px;
       }
 
+      paper-dropdown {
+        overflow: hidden;
+      }
+
       .dropdown.colored::shadow #ripple,
       .dropdown.colored::shadow #background {
         border: 1px solid #0f9d58;
@@ -8414,6 +8418,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       .chkbox {
         margin-right: 6px;
+      }
+
+      .dd-m-b {
+        margin-top: 25px;
       }
     </style>
 
@@ -8438,6 +8446,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <div vertical="" layout="">
             <h4 field-name="">Distribution Type</h4>
           </div>
+
           <paper-dropdown-menu label="Distribution Type">
             <paper-dropdown class="dropdown">
               <core-menu id="dist-type" class="menu" valueattr="value">
@@ -8447,6 +8456,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               </core-menu>
             </paper-dropdown>
           </paper-dropdown-menu>
+
+          <paper-menu-button center="" id="sdb" class="dd-m-b">
+            <paper-icon-button icon="settings" id="sdb-ib"></paper-icon-button>
+            <paper-dropdown id="sdb-dd" class="dropdown">
+              <core-menu id="sdb-dm" class="menu">
+                <template repeat="{{v in distv}}">
+                  <paper-item>{{v}}</paper-item>
+                </template>
+              </core-menu>
+            </paper-dropdown>
+          </paper-menu-button>
         </core-label>
 
         <core-label horizontal="" layout="" class="bottom-padding-twenty">
