@@ -4063,16 +4063,9 @@ polyfill-next-selector { content: '#tabsContent > *:not(#selectionBar)'; }
         color: white;
       }
 
-      .sign-in {
-        background-color: rgb(250, 250, 250);
-        color: #03A9F4;
-        width: 120px;
-        height: 36px;
-        line-height: 36px;
-      }
-
-      .sign-in /deep/ .button-content {
-        padding: 0;
+      .help-button {
+        color: white;
+        right: 10px;
       }
     </style>
 
@@ -4085,6 +4078,10 @@ polyfill-next-selector { content: '#tabsContent > *:not(#selectionBar)'; }
         </template>
       </paper-tabs>
       <div flex=""></div>
+
+      <div horizontal="" layout="" end-justified="">
+        <paper-icon-button id="help" class="help-button" hidden="" icon="help"></paper-icon-button>
+      </div>
     </div>
   </template>
 
@@ -7770,6 +7767,270 @@ in another form (e.g. a text block following the spinner).
 
 
 
+
+
+
+<!-- TODO: would be nice to inherit from label to get .htmlFor, and .control,
+           but the latter is readonly. -->
+<!-- TODO: support off center arrows. -->
+<!-- TODO: detect mobile and apply the .large class, instead of manual
+           control. -->
+<!-- TODO: possibly reuse core-overlay. -->
+<polymer-element name="core-tooltip" attributes="noarrow position label show tipAttribute" role="tooltip" tabindex="0">
+<template>
+  <style>/* Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt */
+
+:host {
+  box-sizing: border-box;
+  position: relative;
+  display: inline-block;
+  outline: none;
+}
+
+:host(:hover:not([disabled])) .core-tooltip {
+  visibility: visible !important;
+}
+
+:host([focused]) .core-tooltip {
+  visibility: visible !important;
+}
+
+.core-tooltip:not(.show) {
+  visibility: hidden;
+}
+
+.core-tooltip {
+  position: absolute;
+  font-size: 10px;
+  font-weight: 500;
+  padding: 8px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.9);
+  box-sizing: border-box;
+  border-radius: 3px; /* TODO: not in spec. */
+  white-space: nowrap;
+  line-height: 6px;
+  z-index: 1002; /* TODO: this is brittle. */
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+:host([large]) .core-tooltip {
+  line-height: 14px;
+  font-size: 14px;
+  padding: 16px;
+}
+
+.core-tooltip.noarrow::after {
+  display: none;
+}
+
+.core-tooltip::after {
+  position: absolute;
+  border: solid transparent;
+  content: '';
+  height: 0;
+  width: 0;
+  border-width: 4px;
+}
+
+.top {
+  margin-bottom: 10px; /* TODO: not specified in spec */
+  bottom: 100%;
+}
+
+.right {
+  margin-left: 10px; /* TODO: not specified in spec */
+  left: 100%;
+}
+
+.bottom {
+  top: 100%;
+  margin-top: 10px; /* TODO: not specified in spec */
+}
+
+.left {
+  margin-right: 10px; /* TODO: not specified in spec */
+  right: 100%;
+}
+
+.core-tooltip.bottom::after {
+  bottom: 100%;
+  left: calc(50% - 4px);
+  border-bottom-color: rgba(0,0,0,0.8);
+}
+
+.core-tooltip.left::after {
+  left: 100%;
+  top: calc(50% - 4px);
+  border-left-color: rgba(0,0,0,0.8);
+}
+
+.core-tooltip.top::after {
+  top: 100%;
+  left: calc(50% - 4px);
+  border-top-color: rgba(0,0,0,0.8);
+}
+
+.core-tooltip.right::after {
+  right: 100%;
+  top: calc(50% - 4px);
+  border-right-color: rgba(0,0,0,0.8);
+}
+</style>
+
+  <div id="tooltip" hidden?="{{!hasTooltipContent}}" class="core-tooltip {{position}} {{ {noarrow: noarrow, show: show &amp;&amp; !disabled} | tokenList}}">
+    <content id="c" select="[{{tipAttribute}}]">{{label}}</content>
+  </div>
+
+  <content></content>
+
+</template>
+<script>
+(function() {
+
+  var proto = {
+
+      /**
+       * A simple string label for the tooltip to display. To display a rich
+       * HTML tooltip instead, omit `label` and include the `tip` attribute
+       * on a child node of `core-tooltip`.
+       *
+       * @attribute label
+       * @type string
+       * @default null
+       */
+      label: null,
+
+      eventDelegates: {
+        'core-resize': 'positionChanged'
+      },
+
+      computed: {
+        // Indicates whether the tooltip has a set label propety or
+        // an element with the `tip` attribute.
+        hasTooltipContent: 'label || !!tipElement'
+      },
+
+      publish: {
+        /**
+         * Forces the tooltip to display. If `disabled` is set, this property is ignored.
+         *
+         * @attribute show
+         * @type boolean
+         * @default false
+         */
+        show: {value: false, reflect: true},
+
+        /**
+         * Positions the tooltip to the top, right, bottom, left of its content.
+         *
+         * @attribute position
+         * @type string
+         * @default 'bottom'
+         */
+        position: {value: 'bottom', reflect: true},
+
+        /**
+         * If true, the tooltip an arrow pointing towards the content.
+         *
+         * @attribute noarrow
+         * @type boolean
+         * @default false
+         */
+        noarrow: {value: false, reflect: true}
+      },
+
+      /**
+       * Customizes the attribute used to specify which content
+       * is the rich HTML tooltip.
+       *
+       * @attribute tipAttribute
+       * @type string
+       * @default 'tip'
+       */
+      tipAttribute: 'tip',
+
+      attached: function() {
+        this.updatedChildren();
+        this.resizableAttachedHandler();
+      },
+
+      detached: function() {
+        this.resizableDetachedHandler();
+      },
+
+      updatedChildren: function () {
+        this.tipElement = null;
+
+        for (var i = 0, el; el = this.$.c.getDistributedNodes()[i]; ++i) {
+          if (el.hasAttribute && el.hasAttribute(this.tipAttribute)) {
+            this.tipElement = el;
+            break;
+          }
+        }
+
+        // Job ensures we're not double calling setPosition() on DOM attach.
+        this.job('positionJob', this.setPosition);
+
+        // Monitor children to re-position tooltip when light dom changes.
+        this.onMutation(this, this.updatedChildren);
+      },
+
+      labelChanged: function(oldVal, newVal) {
+        this.job('positionJob', this.setPosition);
+      },
+
+      positionChanged: function(oldVal, newVal) {
+        this.job('positionJob', this.setPosition);
+      },
+
+      setPosition: function() {
+        var controlWidth = this.clientWidth;
+        var controlHeight = this.clientHeight;
+        var toolTipWidth = this.$.tooltip.clientWidth;
+        var toolTipHeight = this.$.tooltip.clientHeight;
+
+        switch (this.position) {
+          case 'top':
+          case 'bottom':
+            this.$.tooltip.style.left = (controlWidth - toolTipWidth) / 2 + 'px';
+            this.$.tooltip.style.top = null;
+            break;
+          case 'left':
+          case 'right':
+            this.$.tooltip.style.left = null;
+            this.$.tooltip.style.top = (controlHeight - toolTipHeight) / 2 + 'px';
+            break;
+        }
+      }
+
+    };
+
+    Polymer.mixin2(proto, Polymer.CoreFocusable);
+    Polymer.mixin(proto, Polymer.CoreResizable);
+    Polymer(proto);
+  })();
+
+</script>
+</polymer-element>
+
+
+
+
+
+
+
+
+
+
+
+
 <polymer-element name="get-dsa-packager">
   <template>
     <style>
@@ -7779,7 +8040,7 @@ in another form (e.g. a text block following the spinner).
 
       [field-name] {
         padding-top: 20px;
-        width: 256px;
+        width: 264px;
       }
 
       :host /deep/ paper-dropdown-menu {
@@ -7831,10 +8092,20 @@ in another form (e.g. a text block following the spinner).
         border: 1px solid #0f9d58;
         background-color: #b7e1cd;
       }
+
+      .scroll-heighted {
+        height: 256px;
+        overflow-x: hidden;
+        overflow-y: auto;
+      }
+
+      .chkbox {
+        margin-right: 6px;
+      }
     </style>
 
     <div horizontal="" layout="" center-justified="">
-      <div vertical="" layout="" center-justified="">
+      <div class="configs" vertical="" layout="" center-justified="">
         <core-label horizontal="" layout="">
           <div vertical="" layout="">
             <h4 field-name="">Platform</h4>
@@ -7869,11 +8140,13 @@ in another form (e.g. a text block following the spinner).
           <div vertical="" layout="">
             <h4 field-name="">Links</h4>
           </div>
-          <div vertical="" layout="">
+          <div vertical="" layout="" class="scroll-heighted">
             <template repeat="{{link in links}}">
               <core-label center="" horizontal="" layout="">
-                <div flex="" field-name="">{{link.displayName}}</div>
-                <paper-checkbox class="link-checkbox" value="{{link.displayName}}"></paper-checkbox>
+                <core-tooltip flex="" label="{{link.description}}">
+                  <div flex="" field-name="">{{link.displayName}}</div>
+                </core-tooltip>
+                <paper-checkbox class="link-checkbox chkbox" value="{{link.displayName}}"></paper-checkbox>
               </core-label>
             </template>
           </div>
@@ -7922,6 +8195,9 @@ in another form (e.g. a text block following the spinner).
         box-shadow: inset 0 5px 6px -3px rgba(0, 0, 0, 0.26);
       }
     </style>
+
+    <paper-dialog heading="Help" backdrop="true" transition="core-transition-center" autofocus="" id="help-dialog">
+    </paper-dialog>
 
     <!-- forceNarrow wasn't working, so I tried to make it as future proof as possible. -->
     <core-drawer-panel responsivewidth="1000000px" id="our-drawer">
@@ -7975,6 +8251,119 @@ core-header-panel /deep/ #dropShadow {
 }
 */
 </style>
+
+
+
+<script>
+// This empty script is here to workaround issue
+// https://github.com/dart-lang/core-elements/issues/11
+</script>
+
+
+<polymer-element name="paper-dialog-base" extends="core-overlay" role="dialog" on-core-overlay-open="{{openAction}}">
+
+<script>
+
+  Polymer({
+
+    publish: {
+
+      /**
+       * The title of the dialog.
+       *
+       * @attribute heading
+       * @type string
+       * @default ''
+       */
+      heading: '',
+
+      /**
+       * @attribute transition
+       * @type string
+       * @default ''
+       */
+      transition: '',
+
+      /**
+       * @attribute layered
+       * @type boolean
+       * @default true
+       */
+      layered: true
+    },
+
+    ready: function() {
+      this.super();
+      this.sizingTarget = this.$.scroller;
+    },
+
+    headingChanged: function(old) {
+      var label = this.getAttribute('aria-label');
+      if (!label || label === old) {
+        this.setAttribute('aria-label', this.heading);
+      }
+    },
+
+    openAction: function() {
+      if (this.$.scroller.scrollTop) {
+        this.$.scroller.scrollTop = 0;
+      }
+    }
+
+  });
+
+</script>
+
+</polymer-element>
+
+
+
+
+
+
+
+
+
+<polymer-element name="paper-dialog" extends="paper-dialog-base" role="dialog" layout="" vertical="" noscript="">
+
+<template>
+
+  <style>
+    :host {
+      background: #fff;
+      color: rgba(0, 0, 0, 0.87);
+      margin: 32px;
+      overflow: visible !important;
+    }
+
+    h1 {
+      font-size: 20px;
+    }
+
+    #scroller {
+      overflow: auto;
+      box-sizing: border-box;
+      padding: 24px;
+    }
+  </style>
+
+  <paper-shadow z="3" fit=""></paper-shadow>
+
+  <!-- need this because the host needs to be overflow: visible -->
+  <div id="scroller" relative="" flex="" auto="">
+    <template if="{{heading}}">
+      <h1>{{heading}}</h1>
+    </template>
+
+    <content></content>
+  </div>
+
+</template>
+
+</polymer-element>
+
+
+
 
 </div>
 
