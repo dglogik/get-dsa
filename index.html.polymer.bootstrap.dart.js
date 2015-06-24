@@ -9764,12 +9764,10 @@ break
 case 5:throw H.b(P.FM("Unknown Archive Format"))
 case 4:case 1:return H.AZ(x,0,y,null)
 case 2:return H.AZ(v,1,y)}}return H.AZ(null,Bw,y,null)},
-al:function(a){var z=0,y=new P.Zh(),x,w=2,v,u,t,s,r,q
+al:function(a){var z=0,y=new P.Zh(),x,w=2,v,u,t,s
 function al(b,c){if(b===1){v=c
-z=w}while(true)switch(z){case 0:for(u=a.Q,t=u.length,s=0;s<u.length;u.length===t||(0,H.lk)(u),++s){r=u[s]
-q=J.RE(r)
-if(J.Ic(q.goc(r),".zip")||J.Ic(q.goc(r),".png")||J.Ic(q.goc(r),".jpg")||J.Ic(q.goc(r),"BUILD_NUMBER")||J.Ic(q.goc(r),".jpeg")||J.Ic(q.goc(r),".gif"))r.saF(!1)
-else ;}z=3
+z=w}while(true)switch(z){case 0:for(u=a.Q,t=u.length,s=0;s<u.length;u.length===t||(0,H.lk)(u),++s)u[s].saF(!1)
+z=3
 return H.AZ(new B.zp().VU(a,0),al,y)
 case 3:x=c
 z=1
