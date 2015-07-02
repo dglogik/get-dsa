@@ -10048,7 +10048,7 @@ break
 case 1:return H.AZ(x,0,y,null)
 case 2:return H.AZ(v,1,y)}}return H.AZ(null,$async$z3,y,null)},
 static:{MC:function(a){var z,y,x,w,v,u,t,s,r,q
-z=P.Td(["x86 Windows","windows-ia32","x64 Windows","windows-x64","x86 Linux","linux-ia32","x64 Linux","linux-x64","x64 Linux (Static GLibC)","x64_Linux_Static_GLibC","x86 Mac OS","macos-ia32","x64 Mac OS","macos-x64","ARM Linux","arm","Dreamplug","dreamplug","Beaglebone","beaglebone","MIPS Creator CI20","ci20"])
+z=P.Td(["x86 Windows","windows-ia32","x64 Windows","windows-x64","x86 Linux","linux-ia32","x64 Linux","linux-x64","x64 Linux (Static)","x64_Linux_Static_GLibC","x86 Mac OS","macos-ia32","x64 Mac OS","macos-x64","ARM Linux","arm","Dreamplug","dreamplug","Beaglebone","beaglebone","MIPS Creator CI20","ci20"])
 z=R.tB(z)
 y=R.tB([])
 x=R.tB([])
