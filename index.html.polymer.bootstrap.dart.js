@@ -9933,39 +9933,45 @@ else{z=16
 break}z=17
 break
 case 16:a0=j
-a0=a0.n(r,"dreamplug")
+a0=a0.tg(r,"Linux")===!0
 if(a0)a9=a0
 else{z=18
 break}z=19
 break
 case 18:a0=j
-a0=a0.n(r,"beaglebone")
+a0=a0.n(r,"dreamplug")
 if(a0)a9=a0
 else{z=20
 break}z=21
 break
 case 20:a0=j
-a0=a0.n(r,"arm")
+a0=a0.n(r,"beaglebone")
 if(a0)a9=a0
 else{z=22
 break}z=23
 break
 case 22:a0=j
+a0=a0.n(r,"arm")
+if(a0)a9=a0
+else{z=24
+break}z=25
+break
+case 24:a0=j
 a9=a0.n(r,"ci20")
-case 23:case 21:case 19:case 17:z=a9?13:15
+case 25:case 23:case 21:case 19:case 17:z=a9?13:15
 break
 case 13:c="linux"
 z=14
 break
 case 15:a0=j
-z=a0.nC(r,"windows-")?24:26
+z=a0.nC(r,"windows-")?26:28
 break
-case 24:c="windows"
-z=25
+case 26:c="windows"
+z=27
 break
-case 26:a0=j
+case 28:a0=j
 c=a0.nC(r,"macos-")?"mac":"unknown"
-case 25:case 14:a0=R
+case 27:case 14:a0=R
 a0=a0
 a1=q
 a1=a1.gXx()
@@ -9985,14 +9991,14 @@ a2=$
 j=a0.L(new a1.vs(0,a2.X3,null),[null])
 a0=j
 a0.Xf(null)
-z=27
+z=29
 return H.AZ(j,$async$pa,y)
-case 27:a0=W
+case 29:a0=W
 a0=a0
 a1=B
-z=28
+z=30
 return H.AZ(a1.cp(b),$async$pa,y)
-case 28:a=a0.Ts([a9],"application/zip",null)
+case 30:a=a0.Ts([a9],"application/zip",null)
 a0=H
 a0=a0
 a1=P
@@ -10001,9 +10007,9 @@ a2=$
 j=a0.L(new a1.vs(0,a2.X3,null),[null])
 a0=j
 a0.Xf(null)
-z=29
+z=31
 return H.AZ(j,$async$pa,y)
-case 29:a0=n
+case 31:a0=n
 a0.textContent="Downloading Package"
 a0=P
 a0.mp("Downloading Package...")
