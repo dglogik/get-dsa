@@ -8585,7 +8585,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             </paper-table-header>
             <paper-table-body>
               <template repeat="{{link in links}}">
-                <template if="{{link.show}}">
+                <template if="{{link.show &amp;&amp; link.supported}}">
                   <paper-table-row>
                     <paper-table-cell>
                       <paper-checkbox checked="{{link.selected}}"></paper-checkbox>
