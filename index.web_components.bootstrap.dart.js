@@ -8749,7 +8749,7 @@ w=y.jn(z,x)
 for(v=J.J(z.bU);v.k();){u=v.gm()
 if(J.dQ(u.gjf())===!0){J.iC(u,!0)
 continue}J.iC(u,J.dM(u.gjf(),w))}z=y.gW(z).a.h(0,"help")
-J.nV(z,"  <h3 style=\"text-align: center;\">Installation Instructions</h3>\n  Extract the ZIP file provided by the Get DSA Packager.<br/>\n  "+(J.dM(x,"Windows")?"    <p>\n    Navigate to the dglux-server folder in the extracted ZIP location.<br/>\n    Open a new Command Prompt here.<br/>\n    Run the following command:<br/>\n    <code>\n    bin\\daemon.bat start\n    </code><br/>\n  You should be able to access DGLux5 at: http://localhost:8080<br/>\n  Default credentials are: dgSuper / dglux1234<br/>\n    </p>\n\n    <p>Your DSA instance is now running!</p>\n    ":"  <p>\n  Open a Terminal and change to the dglux-server directory in the extracted ZIP location.<br/>\n  Run the following commands:<br/>\n  <code>\n  chmod 777 bin/*.sh<br/>\n  ./bin/daemon.sh start\n  </code><br/>\n  You should be able to access DGLux5 at: http://localhost:8080<br/>\n  Default credentials are: dgSuper / dglux1234<br/>\n  </p>\n\n  <p>Your DSA instance is now running!</p>\n  ")+"\n  ",new B.qU())}},
+J.nV(z,"  <h3 style=\"text-align: center;\">Installation Instructions</h3>\n  Extract the ZIP file provided by the Get DSA Packager.<br/>\n  "+(J.dM(x,"Windows")?"    <p>\n    Navigate to the dglux-server folder in the extracted ZIP location.<br/>\n    Open a new Command Prompt here.<br/>\n    Run the following command:<br/>\n    <code>\n    bin\\daemon.bat start\n    </code><br/>\n  You should be able to access DGLux5 at: http://localhost:8080<br/>\n  Default credentials are: dgSuper / dglux1234<br/>\n    </p>\n\n    <p>Your DSA instance is now running!</p>\n    ":"  <p>\n  Open a Terminal and change to the dglux-server directory in the extracted ZIP location.<br/>\n  Run the following commands:<br/>\n  <code>\n  chmod 777 bin/*.sh<br/>\n  ./bin/daemon.sh start\n  </code><br/>\n  You should be able to access DGLux5 at: http://localhost:8080<br/>\n  Default credentials are: dgSuper / dglux1234<br/>\n  </p>\n\n  <p>Your DSA instance is now running!</p>\n  ")+"<br/>\n  If you have a license for a previous installation that was generated before the 8th of July in 2015, please request a new license, and a new one will be generated for you.<br/>\n  ",new B.qU())}},
 ps:{
 "^":"a:0;",
 $1:[function(a){return J.u(a,"name")},null,null,2,0,null,7,"call"]},
@@ -13404,6 +13404,35 @@ C.bR=function(getTagFallback) {
     hooks.getTag = getTagFallback;
   };
 }
+C.bT=function(hooks) {
+  var userAgent = typeof navigator == "object" ? navigator.userAgent : "";
+  if (userAgent.indexOf("Trident/") == -1) return hooks;
+  var getTag = hooks.getTag;
+  var quickMap = {
+    "BeforeUnloadEvent": "Event",
+    "DataTransfer": "Clipboard",
+    "HTMLDDElement": "HTMLElement",
+    "HTMLDTElement": "HTMLElement",
+    "HTMLPhraseElement": "HTMLElement",
+    "Position": "Geoposition"
+  };
+  function getTagIE(o) {
+    var tag = getTag(o);
+    var newTag = quickMap[tag];
+    if (newTag) return newTag;
+    if (tag == "Object") {
+      if (window.DataView && (o instanceof window.DataView)) return "DataView";
+    }
+    return tag;
+  }
+  function prototypeForTagIE(tag) {
+    var constructor = window[tag];
+    if (constructor == null) return null;
+    return constructor.prototype;
+  }
+  hooks.getTag = getTagIE;
+  hooks.prototypeForTag = prototypeForTagIE;
+}
 C.bS=function() {
   function typeNameInChrome(o) {
     var constructor = o.constructor;
@@ -13439,35 +13468,6 @@ C.bS=function() {
     getUnknownTag: isBrowser ? getUnknownTagGenericBrowser : getUnknownTag,
     prototypeForTag: prototypeForTag,
     discriminator: discriminator };
-}
-C.bT=function(hooks) {
-  var userAgent = typeof navigator == "object" ? navigator.userAgent : "";
-  if (userAgent.indexOf("Trident/") == -1) return hooks;
-  var getTag = hooks.getTag;
-  var quickMap = {
-    "BeforeUnloadEvent": "Event",
-    "DataTransfer": "Clipboard",
-    "HTMLDDElement": "HTMLElement",
-    "HTMLDTElement": "HTMLElement",
-    "HTMLPhraseElement": "HTMLElement",
-    "Position": "Geoposition"
-  };
-  function getTagIE(o) {
-    var tag = getTag(o);
-    var newTag = quickMap[tag];
-    if (newTag) return newTag;
-    if (tag == "Object") {
-      if (window.DataView && (o instanceof window.DataView)) return "DataView";
-    }
-    return tag;
-  }
-  function prototypeForTagIE(tag) {
-    var constructor = window[tag];
-    if (constructor == null) return null;
-    return constructor.prototype;
-  }
-  hooks.getTag = getTagIE;
-  hooks.prototypeForTag = prototypeForTagIE;
 }
 C.bU=function(hooks) {
   var getTag = hooks.getTag;
@@ -13556,8 +13556,8 @@ C.cN=new H.ae("style")
 C.cO=new H.ae("supported")
 C.cP=new H.ae("title")
 C.a0=new H.ae("value")
-C.cQ=H.t("Bu")
 C.cR=H.t("Bv")
+C.cQ=H.t("Bu")
 C.a1=H.t("ct")
 C.cS=H.t("ka")
 C.a2=H.t("cV")
@@ -13565,12 +13565,12 @@ C.a3=H.t("dW")
 C.a4=H.t("ec")
 C.a5=H.t("ez")
 C.a6=H.t("et")
-C.a7=H.t("eA")
 C.cU=H.t("Bw")
+C.a7=H.t("eA")
 C.cV=H.t("bd")
 C.a8=H.t("cW")
-C.cX=H.t("Ar")
 C.cW=H.t("Aq")
+C.cX=H.t("Ar")
 C.a9=H.t("ex")
 C.aa=H.t("eq")
 C.ab=H.t("e9")
