@@ -12051,7 +12051,7 @@ if(y>=768){x=z.kX
 if(typeof x!=="number")return H.o(x)
 x=y>x}else x=!1
 if(x)J.fE(H.Go(J.hz(H.Go(document.querySelector("get-dsa-app"),"$isR5")).Q.p(0,"our-drawer"),"$isPe")).V7("closeDrawer",[])
-z.kX=y}},null,null,2,0,null,32,"call"]}}],["","",,B,{
+z.kX=y}else J.Vs(J.hz(H.Go(document.querySelector("get-dsa-packager"),"$isir")).Q.p(0,"nm")).Rz(0,"center-justified")},null,null,2,0,null,32,"call"]}}],["","",,B,{
 "^":"",
 rK:function(a){var z,y,x
 if(a.a===a.b){z=H.J(new P.vs(0,$.X3,null),[null])

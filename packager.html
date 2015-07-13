@@ -6,7 +6,7 @@
   
 </head>
 
-<body fullbleed="" unresolved=""><div hidden=""><style shim-shadowdom="">
+<body fullbleed="" unresolved="" style="font-family: 'Open Sans';"><div hidden=""><style shim-shadowdom="">
 /*******************************
           Flex Layout
 *******************************/
@@ -7628,13 +7628,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         -moz-user-select: text;
         -ms-user-select: text;
         -webkit-user-select: text;
+        width: 60%;
       }
     </style>
 
     <paper-dialog heading="Links" backdrop="true" transition="core-transition-center" autofocus="" id="links-dialog">
       <div horizontal="" justified="" layout="" flex="">
         <div flex="" vertical="" layout="" start-justified="">
-          <paper-button raised="" on-tap="{{selectAllLinks}}">Select All</paper-button>
+          <paper-button raised="" on-tap="{{selectAllLinks}}" style="width: 256px;">Select All</paper-button>
           <h3>Filters</h3>
           <div>
             <h4>Languages</h4>
@@ -7684,7 +7685,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       </div>
     </paper-dialog>
 
-    <div horizontal="" layout="" center-justified="">
+    <div id="nm" horizontal="" layout="" center-justified="">
       <div class="configs" vertical="" layout="" center-justified="">
         <core-label horizontal="" layout="">
           <div vertical="" layout="">
@@ -8416,7 +8417,9 @@ core-selector:not(.narrow-layout) ::content [core-drawer-toggle] {
 
 </div>
 
-<get-dsa-packager></get-dsa-packager>
+<div start-justified="" layout="">
+  <get-dsa-packager></get-dsa-packager>
+</div>
 
 <script src="packager.html.polymer.bootstrap.dart.js" async=""></script>
 
