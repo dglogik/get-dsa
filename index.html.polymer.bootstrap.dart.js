@@ -9472,7 +9472,7 @@ mU:function(a){var z=0,y=new P.Zh(),x,w=2,v,u,t
 function mU(b,c){if(b===1){v=c
 z=w}while(true)switch(z){case 0:u=J.rY(a)
 z=3
-return H.AZ(K.tp(!u.nC(a,"linux-")&&!u.nC(a,"windows-")&&!u.nC(a,"macos-")?"https://iot-dsa.github.io/dart-sdk-builds/"+H.d(a)+".zip":"https://commondatastorage.googleapis.com/dart-archive/channels/dev/raw/latest/sdk/dartsdk-"+H.d(a)+"-release.zip"),mU,y)
+return H.AZ(K.tp(!u.nC(a,"linux-")&&!u.nC(a,"windows-")&&!u.nC(a,"macos-")?"https://iot-dsa.github.io/dart-sdk-builds/"+H.d(a)+".zip":"https://commondatastorage.googleapis.com/dart-archive/channels/stable/release/latest/sdk/dartsdk-"+H.d(a)+"-release.zip"),mU,y)
 case 3:t=c
 z=4
 return H.AZ(null,mU,y)
