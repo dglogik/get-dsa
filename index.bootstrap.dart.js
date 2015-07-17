@@ -6482,9 +6482,9 @@ z=H.J(new P.Zf(H.J(new P.vs(0,$.V,null),[W.zU])),[W.zU])
 y=new XMLHttpRequest()
 C.Dt.i3(y,"GET",a,!0)
 x=H.J(new W.RO(y,"load",!1),[null])
-H.J(new W.Ov(0,x.Q,x.a,W.Yt(new W.bU(z,y)),x.b),[H.Oq(x,0)]).DN()
+H.J(new W.Ov(0,x.Q,x.a,W.Yt(new W.bU(z,y)),x.b),[H.Oq(x,0)]).YI()
 x=H.J(new W.RO(y,"error",!1),[null])
-H.J(new W.Ov(0,x.Q,x.a,W.Yt(z.gYJ()),x.b),[H.Oq(x,0)]).DN()
+H.J(new W.Ov(0,x.Q,x.a,W.Yt(z.gYJ()),x.b),[H.Oq(x,0)]).YI()
 y.send()
 return z.Q},
 C0:function(a,b){a=536870911&a+b
@@ -7458,7 +7458,7 @@ RO:{
 "^":"qh;Q,a,b",
 X5:function(a,b,c,d){var z=new W.Ov(0,this.Q,this.a,W.Yt(a),this.b)
 z.$builtinTypeInfo=this.$builtinTypeInfo
-z.DN()
+z.YI()
 return z},
 We:function(a){return this.X5(a,null,null,null)},
 zC:function(a,b,c){return this.X5(a,null,b,c)}},
@@ -7506,8 +7506,8 @@ this.EO()},
 yy:function(a){return this.nB(a,null)},
 gRW:function(){return this.Q>0},
 QE:function(){if(this.a==null||this.Q<=0)return;--this.Q
-this.DN()},
-DN:function(){var z=this.c
+this.YI()},
+YI:function(){var z=this.c
 if(z!=null&&this.Q<=0)J.cZ(this.a,this.b,z,this.d)},
 EO:function(){var z=this.c
 if(z!=null)J.GJ(this.a,this.b,z,this.d)}},
@@ -8421,13 +8421,14 @@ $1:[function(a){J.mP($.nL)},null,null,2,0,null,3,"call"]}}],["","",,G,{
 eu:{
 "^":"a;t0:Q<,M:a>"},
 YT:{
-"^":"Xf;kX,RZ,ij,TQ,ca,Jc,cw,bN,Q$,a$,Q$,a$,c$,d$,e$,f$,r$,x$,y$,z$,ch$,cx$,cy$,db$,dx$",
-If:function(a,b,c){C.Nm.LP(a.bN,new G.Fl(b,c),!0)
+"^":"Xf;kX,RZ,ij,TQ,ca,Jc,cw,bN,mT,Q$,a$,Q$,a$,c$,d$,e$,f$,r$,x$,y$,z$,ch$,cx$,cy$,db$,dx$",
+sYt:function(a,b){a.RZ=this.ct(a,C.YM,a.RZ,b)},
+If:function(a,b,c){C.Nm.LP(a.mT,new G.Fl(b,c),!0)
 this.BP(a)},
 BP:function(a){var z,y,x,w,v,u,t,s,r,q,p
-z=a.bN
-if(z.length===0){J.kH(a.ij,new G.yA())
-return}y=a.ij
+z=a.mT
+if(z.length===0){J.kH(a.TQ,new G.yA())
+return}y=a.TQ
 x=J.w1(y)
 x.aN(y,new G.a8())
 for(w=z.length,v=0;v<z.length;z.length===w||(0,H.lk)(z),++v){u=z[v]
@@ -8436,24 +8437,25 @@ p=J.RE(q)
 p.sTp(q,p.gTp(q)===!0||J.mG(J.Tf(q.ghJ(),s),r))}}x.aN(y,new G.bf())},
 ig:function(a){var z,y,x,w,v
 this.fH(a)
+if(!(J.kE(window.navigator.userAgent,"Chrome")||J.kE(window.navigator.userAgent,"Chromium")))a.RZ=this.ct(a,C.YM,a.RZ,!1)
 K.HL().Z(new G.Vz(a))
 K.Xt().Z(new G.Ms(a))
 z=H.Go(this.gKM(a).Q.p(0,"platform"),"$istc")
 z.toString
 y=new W.DM(z,z).p(0,"core-select")
-H.J(new W.Ov(0,y.Q,y.a,W.Yt(new G.Jc(a)),y.b),[H.Oq(y,0)]).DN()
+H.J(new W.Ov(0,y.Q,y.a,W.Yt(new G.Jc(a)),y.b),[H.Oq(y,0)]).YI()
 x=H.Go(this.gKM(a).Q.p(0,"dist-type"),"$istc")
 x.toString
 y=new W.DM(x,x).p(0,"core-select")
-H.J(new W.Ov(0,y.Q,y.a,W.Yt(new G.IS(a)),y.b),[H.Oq(y,0)]).DN()
+H.J(new W.Ov(0,y.Q,y.a,W.Yt(new G.IS(a)),y.b),[H.Oq(y,0)]).YI()
 y=J.JF(this.gKM(a).Q.p(0,"sdb-dd")).p(0,"core-select")
-H.J(new W.Ov(0,y.Q,y.a,W.Yt(new G.jc(a)),y.b),[H.Oq(y,0)]).DN()
+H.J(new W.Ov(0,y.Q,y.a,W.Yt(new G.jc(a)),y.b),[H.Oq(y,0)]).YI()
 J.Vg(this.gKM(a).Q.p(0,"sdb-ib")).We(new G.qa(a))
 w=this.gKM(a).Q.p(0,"links-dialog")
 y=J.RE(w)
 J.TZ(J.IF(J.Tf(y.gKM(w),"scroller")),"1024px")
 v=y.gF(w).p(0,"core-overlay-close-completed")
-H.J(new W.Ov(0,v.Q,v.a,W.Yt(new G.VzP(a)),v.b),[H.Oq(v,0)]).DN()
+H.J(new W.Ov(0,v.Q,v.a,W.Yt(new G.VzP(a)),v.b),[H.Oq(v,0)]).YI()
 J.Ld(J.IF(J.Tf(y.gKM(w),"scroller")),"scroll")},
 dQ:function(a){this.ii(a)},
 K7:function(a){P.e4(new G.lB(a),null)},
@@ -8490,13 +8492,14 @@ s=H.J(new V.br(P.Py(null,null,null,P.I,null),null,null),[P.I,null])
 r=P.u5()
 q=P.u5()
 a.kX="latest"
-a.RZ=z
-a.ij=y
-a.TQ=x
-a.ca=w
-a.Jc=v
-a.cw=u
-a.bN=[]
+a.RZ=!0
+a.ij=z
+a.TQ=y
+a.ca=x
+a.Jc=w
+a.cw=v
+a.bN=u
+a.mT=[]
 a.e$=[]
 a.y$=!1
 a.ch$=!1
@@ -8527,12 +8530,12 @@ $1:[function(a){var z=J.RE(a)
 if(z.gTp(a)!==!0&&z.gw4(a)===!0)z.sw4(a,!1)},null,null,2,0,null,4,"call"]},
 Vz:{
 "^":"r:3;Q",
-$1:[function(a){return J.bj(this.Q.TQ,a)},null,null,2,0,null,52,"call"]},
+$1:[function(a){return J.bj(this.Q.ca,a)},null,null,2,0,null,52,"call"]},
 Ms:{
 "^":"r:3;Q",
 $1:[function(a){var z,y,x
 z=this.Q
-y=z.ij
+y=z.TQ
 x=J.w1(y)
 x.FV(y,J.kl(a,new G.Mw()))
 x.aN(y,new G.QD(z))},null,null,2,0,null,53,"call"]},
@@ -8545,12 +8548,12 @@ QD:{
 $1:[function(a){var z,y,x,w,v,u,t
 z=J.Vk(a)
 y=this.Q
-x=y.Jc
+x=y.cw
 w=J.w1(x)
 if(w.Vr(x,new G.RJ(z))!==!0){v=new G.xl(z,!1,null,null)
 w.h(x,v)
 v.gqh(v).We(new G.xX(y,v))}u=a.gMF()
-x=y.cw
+x=y.bN
 w=J.w1(x)
 if(w.Vr(x,new G.DU(u))!==!0){t=new G.hO(u,!1,null,null)
 w.h(x,t)
@@ -8561,7 +8564,7 @@ $1:function(a){return J.mG(J.O6(a),this.Q)}},
 xX:{
 "^":"r:3;Q,a",
 $1:[function(a){var z,y,x,w,v,u,t
-for(z=J.Nx(a),y=this.Q,x=this.a.Q,w=J.RE(y),v=y.bN;z.D();){u=z.gk()
+for(z=J.Nx(a),y=this.Q,x=this.a.Q,w=J.RE(y),v=y.mT;z.D();){u=z.gk()
 t=J.RE(u)
 if(J.mG(t.goc(u),C.Al))if(t.gzZ(u)===!0){v.push(new G.eu("type",x))
 w.BP(y)}else w.If(y,"type",x)}},null,null,2,0,null,3,"call"]},
@@ -8571,7 +8574,7 @@ $1:function(a){return J.mG(J.O6(a),this.Q)}},
 ty:{
 "^":"r:3;Q,a",
 $1:[function(a){var z,y,x,w,v,u,t
-for(z=J.Nx(a),y=this.Q,x=this.a.Q,w=J.RE(y),v=y.bN;z.D();){u=z.gk()
+for(z=J.Nx(a),y=this.Q,x=this.a.Q,w=J.RE(y),v=y.mT;z.D();){u=z.gk()
 t=J.RE(u)
 if(J.mG(t.goc(u),C.Al))if(t.gzZ(u)===!0){v.push(new G.eu("category",x))
 w.BP(y)}else w.If(y,"category",x)}},null,null,2,0,null,3,"call"]},
@@ -8595,7 +8598,7 @@ VzP:{
 "^":"r:3;Q",
 $1:[function(a){var z,y,x,w,v
 z=this.Q
-y=J.vo(z.ij,new G.tW())
+y=J.vo(z.TQ,new G.tW())
 x=y.gv(y)
 w=x===1?"link":"links"
 v=H.d(x)+" "+w+" selected."
@@ -8612,7 +8615,7 @@ t=J.RE(u)
 z=2
 return H.U(t.z3(u,H.Go(J.Tf(J.fE(H.Go(t.gKM(u).Q.p(0,"dist-type"),"$istc")),"selectedItem"),"$isHk").getAttribute("value")),$$0,y)
 case 2:s=b
-u=u.ca
+u=u.Jc
 t=J.w1(u)
 t.V1(u)
 t.FV(u,s)
@@ -8626,7 +8629,7 @@ y=J.RE(z)
 x=H.Go(J.Tf(J.fE(H.Go(y.gKM(z).Q.p(0,"platform"),"$istc")),"selectedItem"),"$isHk").getAttribute("value")
 P.JS("Selected Platform: "+H.d(x))
 w=y.Zr(z,x)
-for(v=J.Nx(z.ij);v.D();){u=v.gk()
+for(v=J.Nx(z.TQ);v.D();){u=v.gk()
 if(J.FN(u.gVS())===!0){J.pA(u,!0)
 continue}J.pA(u,J.kE(u.gVS(),w))}z=y.gKM(z).Q.p(0,"help")
 J.lq(z,"  <h3 style=\"text-align: center;\">Installation Instructions</h3>\n  Extract the ZIP file provided by the Get DSA Packager.<br/>\n  "+(J.kE(x,"Windows")?"    <p>\n    Navigate to the dglux-server folder in the extracted ZIP location.<br/>\n    Open a new Command Prompt here.<br/>\n    Run the following command:<br/>\n    <code>\n    bin\\daemon.bat start\n    </code><br/>\n  You should be able to access DGLux5 at: http://localhost:8080<br/>\n  Default credentials are: dgSuper / dglux1234<br/>\n    </p>\n\n    <p>Your DSA instance is now running!</p>\n    ":"  <p>\n  Open a Terminal and change to the dglux-server directory in the extracted ZIP location.<br/>\n  Run the following commands:<br/>\n  <code>\n  chmod 777 bin/*.sh<br/>\n  ./bin/daemon.sh start\n  </code><br/>\n  You should be able to access DGLux5 at: http://localhost:8080<br/>\n  Default credentials are: dgSuper / dglux1234<br/>\n  </p>\n\n  <p>Your DSA instance is now running!</p>\n  ")+"<br/>\n  If you have a license for a previous installation that was generated before the 8th of July in 2015, please request a new license, and a new one will be generated for you.<br/>\n  ",new B.If())}},

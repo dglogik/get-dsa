@@ -2400,9 +2400,9 @@ $isOd:1}}],["","",,E,{
 "^":"",
 Iq:[function(){var z,y,x
 z=P.Td([C.P,new E.L(),C.R,new E.Q(),C.N,new E.O(),C.X,new E.Y(),C.M,new E.em(),C.W,new E.Lb(),C.U,new E.QA(),C.Nk,new E.Cv(),C.E5,new E.ed(),C.V,new E.wa(),C.Ds,new E.Or(),C.Z,new E.YL(),C.S,new E.wf(),C.Yt,new E.Oa(),C.hT,new E.emv(),C.uu,new E.Lbd(),C.T,new E.QAa(),C.YS,new E.CvS(),C.TM,new E.edy(),C.a1,new E.waE(),C.Hb,new E.Ore(),C.aY,new E.YLa(),C.rb,new E.wfa(),C.XA,new E.Oaa(),C.aU,new E.e0(),C.jq,new E.e1(),C.Dd,new E.e2(),C.YM,new E.e3(),C.jh,new E.e4(),C.BC,new E.e5()])
-y=P.Td([C.P,new E.e6(),C.X,new E.e7(),C.Nk,new E.e8(),C.E5,new E.e9(),C.V,new E.e10(),C.Z,new E.e11(),C.hT,new E.e12(),C.T,new E.e13(),C.a1,new E.e14(),C.Hb,new E.e15(),C.aU,new E.e16(),C.jq,new E.e17()])
+y=P.Td([C.P,new E.e6(),C.X,new E.e7(),C.Nk,new E.e8(),C.E5,new E.e9(),C.V,new E.e10(),C.Z,new E.e11(),C.hT,new E.e12(),C.T,new E.e13(),C.a1,new E.e14(),C.Hb,new E.e15(),C.aU,new E.e16(),C.jq,new E.e17(),C.YM,new E.e18()])
 x=P.Td([C.La,C.hG,C.zM,C.hG,C.mI,C.hG,C.YW,C.hG,C.Jm,C.Mt,C.Mt,C.qJ])
-y=O.yv(!1,P.Td([C.La,P.u5(),C.zM,P.u5(),C.mI,P.Td([C.P,C.Oh,C.Nk,C.oF,C.E5,C.au,C.hT,C.fQ,C.T,C.UA,C.Hb,C.FF]),C.YW,P.Td([C.X,C.YN,C.jq,C.NG]),C.Jm,P.u5(),C.hG,P.u5()]),z,P.Td([C.P,"categories",C.R,"category",C.N,"column",C.X,"columns",C.M,"createDistPackage",C.W,"displayName",C.U,"dist",C.Nk,"dists",C.E5,"distv",C.V,"filtered",C.Ds,"heading",C.Z,"id",C.S,"keys",C.Yt,"language",C.hT,"languages",C.uu,"link",C.T,"links",C.YS,"name",C.TM,"openLinksDialog",C.a1,"platform",C.Hb,"platforms",C.aY,"selectAllLinks",C.rb,"selectNext",C.XA,"selectPrevious",C.aU,"selected",C.jq,"shadow",C.Dd,"show",C.YM,"supported",C.jh,"v",C.BC,"validateSelected"]),x,y,null)
+y=O.yv(!1,P.Td([C.La,P.u5(),C.zM,P.u5(),C.mI,P.Td([C.P,C.Oh,C.Nk,C.oF,C.E5,C.au,C.hT,C.fQ,C.T,C.UA,C.Hb,C.FF,C.YM,C.c3]),C.YW,P.Td([C.X,C.YN,C.jq,C.NG]),C.Jm,P.u5(),C.hG,P.u5()]),z,P.Td([C.P,"categories",C.R,"category",C.N,"column",C.X,"columns",C.M,"createDistPackage",C.W,"displayName",C.U,"dist",C.Nk,"dists",C.E5,"distv",C.V,"filtered",C.Ds,"heading",C.Z,"id",C.S,"keys",C.Yt,"language",C.hT,"languages",C.uu,"link",C.T,"links",C.YS,"name",C.TM,"openLinksDialog",C.a1,"platform",C.Hb,"platforms",C.aY,"selectAllLinks",C.rb,"selectNext",C.XA,"selectPrevious",C.aU,"selected",C.jq,"shadow",C.Dd,"show",C.YM,"supported",C.jh,"v",C.BC,"validateSelected"]),x,y,null)
 $.j8=new O.LT(y)
 $.Yv=new O.mO(y)
 $.iE=new O.ut(y)
@@ -2534,7 +2534,10 @@ e16:{
 $2:[function(a,b){J.h6(a,b)},null,null,4,0,null,18,19,"call"]},
 e17:{
 "^":"r:8;",
-$2:[function(a,b){J.XC(a,b)},null,null,4,0,null,18,19,"call"]}},1],["","",,T,{
+$2:[function(a,b){J.XC(a,b)},null,null,4,0,null,18,19,"call"]},
+e18:{
+"^":"r:8;",
+$2:[function(a,b){J.pA(a,b)},null,null,4,0,null,18,19,"call"]}},1],["","",,T,{
 "^":"",
 cG:function(a,b){var z,y,x,w,v
 z=J.iN(a)
@@ -9570,31 +9573,34 @@ $1:[function(a){J.mP($.nL)},null,null,2,0,null,3,"call"]}}],["","",,G,{
 eu:{
 "^":"a;t0:Q<,M:a>"},
 YT:{
-"^":"Xf;kX,RZ,ij,TQ,ca,Jc,cw,bN,Q$,a$,Q$,a$,b$,c$,d$,e$,f$,r$,x$,y$,z$,ch$,cx$,cy$,db$",
-gre:function(a){return a.RZ},
-sre:function(a,b){a.RZ=this.ct(a,C.Hb,a.RZ,b)},
-If:function(a,b,c){C.Nm.LP(a.bN,new G.Fl(b,c),!0)
+"^":"Xf;kX,RZ,ij,TQ,ca,Jc,cw,bN,mT,Q$,a$,Q$,a$,b$,c$,d$,e$,f$,r$,x$,y$,z$,ch$,cx$,cy$,db$",
+gYt:function(a){return a.RZ},
+sYt:function(a,b){a.RZ=this.ct(a,C.YM,a.RZ,b)},
+gre:function(a){return a.ij},
+sre:function(a,b){a.ij=this.ct(a,C.Hb,a.ij,b)},
+If:function(a,b,c){C.Nm.LP(a.mT,new G.Fl(b,c),!0)
 this.BP(a)},
 BP:function(a){var z,y,x,w,v,u,t,s,r
-z=a.bN
-if(z.length===0){J.kH(a.ij,new G.yA())
-return}J.kH(a.ij,new G.a8())
+z=a.mT
+if(z.length===0){J.kH(a.TQ,new G.yA())
+return}J.kH(a.TQ,new G.a8())
 for(y=z.length,x=0;x<z.length;z.length===y||(0,H.lk)(z),++x){w=z[x]
-for(v=J.Nx(a.ij),u=w.Q,t=w.a;v.D();){s=v.gk()
+for(v=J.Nx(a.TQ),u=w.Q,t=w.a;v.D();){s=v.gk()
 r=J.RE(s)
-r.sTp(s,r.gTp(s)===!0||J.mG(J.Tf(s.ghJ(),u),t))}}J.kH(a.ij,new G.bf())},
-gQj:function(a){return a.ij},
-sQj:function(a,b){a.ij=this.ct(a,C.T,a.ij,b)},
-gly:function(a){return a.TQ},
-sly:function(a,b){a.TQ=this.ct(a,C.Nk,a.TQ,b)},
-gow:function(a){return a.ca},
-sow:function(a,b){a.ca=this.ct(a,C.E5,a.ca,b)},
-gJk:function(a){return a.Jc},
-sJk:function(a,b){a.Jc=this.ct(a,C.hT,a.Jc,b)},
-gE3:function(a){return a.cw},
-sE3:function(a,b){a.cw=this.ct(a,C.P,a.cw,b)},
+r.sTp(s,r.gTp(s)===!0||J.mG(J.Tf(s.ghJ(),u),t))}}J.kH(a.TQ,new G.bf())},
+gQj:function(a){return a.TQ},
+sQj:function(a,b){a.TQ=this.ct(a,C.T,a.TQ,b)},
+gly:function(a){return a.ca},
+sly:function(a,b){a.ca=this.ct(a,C.Nk,a.ca,b)},
+gow:function(a){return a.Jc},
+sow:function(a,b){a.Jc=this.ct(a,C.E5,a.Jc,b)},
+gJk:function(a){return a.cw},
+sJk:function(a,b){a.cw=this.ct(a,C.hT,a.cw,b)},
+gE3:function(a){return a.bN},
+sE3:function(a,b){a.bN=this.ct(a,C.P,a.bN,b)},
 ig:function(a){var z,y,x,w,v
 this.fH(a)
+if(!(J.kE(window.navigator.userAgent,"Chrome")||J.kE(window.navigator.userAgent,"Chromium")))a.RZ=this.ct(a,C.YM,a.RZ,!1)
 K.PO().Z(new G.Vz(a))
 K.Xt().Z(new G.Ms(a))
 z=H.Go(this.gKM(a).Q.p(0,"platform"),"$isFq")
@@ -9623,14 +9629,14 @@ if(C.yo.tg(b,"windows"))return"windows"
 if(C.yo.tg(b,"mac"))return"mac"
 return"linux"},
 PM:[function(a){J.mP(this.gKM(a).Q.p(0,"links-dialog"))},"$0","gNu",0,0,0],
-Mc:[function(a){J.kH(a.ij,new G.Is())},"$0","gjG",0,0,0],
+Mc:[function(a){J.kH(a.TQ,new G.Is())},"$0","gjG",0,0,0],
 pa:[function(a1){var z=0,y=new P.Zh(),x=1,w,v=this,u,t,s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,c,b,a,a0
 function pa(a2,a3){if(a2===1){w=a3
 z=x}while(true)switch(z){case 0:u=H.Go(J.Tf(J.fE(H.Go(v.gKM(a1).Q.p(0,"platform"),"$isFq")),"selectedItem"),"$isHk").getAttribute("value")
 t=H.Go(J.Tf(J.fE(H.Go(v.gKM(a1).Q.p(0,"dist-type"),"$isFq")),"selectedItem"),"$isHk").getAttribute("value")
-s=J.Vk(a1.ij,new G.Ez()).br(0)
-r=J.Tf(a1.RZ,u)
-q=J.YY(a1.TQ,new G.eN(t))
+s=J.Vk(a1.TQ,new G.Ez()).br(0)
+r=J.Tf(a1.ij,u)
+q=J.YY(a1.ca,new G.eN(t))
 p=H.Go(v.gKM(a1).Q.p(0,"spinner"),"$isCb")
 o=J.RE(p)
 J.C7(o.giw(p),"active",!0)
@@ -9726,13 +9732,14 @@ s=H.J(new V.qC(P.SX(null,null,null,P.I,null),null,null),[P.I,null])
 r=P.u5()
 q=P.u5()
 a.kX="latest"
-a.RZ=z
-a.ij=y
-a.TQ=x
-a.ca=w
-a.Jc=v
-a.cw=u
-a.bN=[]
+a.RZ=!0
+a.ij=z
+a.TQ=y
+a.ca=x
+a.Jc=w
+a.cw=v
+a.bN=u
+a.mT=[]
 a.d$=[]
 a.x$=!1
 a.z$=!1
@@ -9763,12 +9770,12 @@ $1:[function(a){var z=J.RE(a)
 if(z.gTp(a)!==!0&&z.gw4(a)===!0)z.sw4(a,!1)},null,null,2,0,null,4,"call"]},
 Vz:{
 "^":"r:3;Q",
-$1:[function(a){return J.bj(this.Q.TQ,a)},null,null,2,0,null,53,"call"]},
+$1:[function(a){return J.bj(this.Q.ca,a)},null,null,2,0,null,53,"call"]},
 Ms:{
 "^":"r:3;Q",
 $1:[function(a){var z=this.Q
-J.bj(z.ij,J.kl(a,new G.QD()))
-J.kH(z.ij,new G.JN(z))},null,null,2,0,null,54,"call"]},
+J.bj(z.TQ,J.kl(a,new G.QD()))
+J.kH(z.TQ,new G.JN(z))},null,null,2,0,null,54,"call"]},
 QD:{
 "^":"r:3;",
 $1:[function(a){if(a.x4("category")!==!0)J.C7(a,"category","Misc.")
@@ -9778,11 +9785,11 @@ JN:{
 $1:[function(a){var z,y,x,w,v
 z=J.xl(a)
 y=this.Q
-if(J.pb(y.Jc,new G.RJ(z))!==!0){x=new G.xu(z,!1,null,null)
-J.bi(y.Jc,x)
+if(J.pb(y.cw,new G.RJ(z))!==!0){x=new G.xu(z,!1,null,null)
+J.bi(y.cw,x)
 x.gqh(x).We(new G.xX(y,x))}w=a.gMF()
-if(J.pb(y.cw,new G.DU(w))!==!0){v=new G.hO(w,!1,null,null)
-J.bi(y.cw,v)
+if(J.pb(y.bN,new G.DU(w))!==!0){v=new G.hO(w,!1,null,null)
+J.bi(y.bN,v)
 v.gqh(v).We(new G.ty(y,v))}},null,null,2,0,null,4,"call"]},
 RJ:{
 "^":"r:3;Q",
@@ -9790,7 +9797,7 @@ $1:function(a){return J.mG(J.O6(a),this.Q)}},
 xX:{
 "^":"r:3;Q,a",
 $1:[function(a){var z,y,x,w,v,u,t
-for(z=J.Nx(a),y=this.Q,x=this.a.Q,w=J.RE(y),v=y.bN;z.D();){u=z.gk()
+for(z=J.Nx(a),y=this.Q,x=this.a.Q,w=J.RE(y),v=y.mT;z.D();){u=z.gk()
 t=J.RE(u)
 if(J.mG(t.goc(u),C.V))if(t.gzZ(u)===!0){v.push(new G.eu("type",x))
 w.BP(y)}else w.If(y,"type",x)}},null,null,2,0,null,3,"call"]},
@@ -9800,7 +9807,7 @@ $1:function(a){return J.mG(J.O6(a),this.Q)}},
 ty:{
 "^":"r:3;Q,a",
 $1:[function(a){var z,y,x,w,v,u,t
-for(z=J.Nx(a),y=this.Q,x=this.a.Q,w=J.RE(y),v=y.bN;z.D();){u=z.gk()
+for(z=J.Nx(a),y=this.Q,x=this.a.Q,w=J.RE(y),v=y.mT;z.D();){u=z.gk()
 t=J.RE(u)
 if(J.mG(t.goc(u),C.V))if(t.gzZ(u)===!0){v.push(new G.eu("category",x))
 w.BP(y)}else w.If(y,"category",x)}},null,null,2,0,null,3,"call"]},
@@ -9824,7 +9831,7 @@ VzP:{
 "^":"r:3;Q",
 $1:[function(a){var z,y,x,w,v
 z=this.Q
-y=J.Vk(z.ij,new G.tW())
+y=J.Vk(z.TQ,new G.tW())
 x=y.gv(y)
 w=x===1?"link":"links"
 v=H.d(x)+" "+w+" selected."
@@ -9841,8 +9848,8 @@ t=J.RE(u)
 z=2
 return H.AZ(t.z3(u,H.Go(J.Tf(J.fE(H.Go(t.gKM(u).Q.p(0,"dist-type"),"$isFq")),"selectedItem"),"$isHk").getAttribute("value")),$$0,y)
 case 2:s=b
-J.U2(u.ca)
-J.bj(u.ca,s)
+J.U2(u.Jc)
+J.bj(u.Jc,s)
 return H.AZ(null,0,y,null)
 case 1:return H.AZ(w,1,y)}}return H.AZ(null,$$0,y,null)}},
 uU:{
@@ -9853,7 +9860,7 @@ y=J.RE(z)
 x=H.Go(J.Tf(J.fE(H.Go(y.gKM(z).Q.p(0,"platform"),"$isFq")),"selectedItem"),"$isHk").getAttribute("value")
 P.mp("Selected Platform: "+H.d(x))
 w=y.Zr(z,x)
-for(v=J.Nx(z.ij);v.D();){u=v.gk()
+for(v=J.Nx(z.TQ);v.D();){u=v.gk()
 if(J.tx(u.gVS())===!0){J.pA(u,!0)
 continue}J.pA(u,J.kE(u.gVS(),w))}z=y.gKM(z).Q.p(0,"help")
 J.jl(z,"  <h3 style=\"text-align: center;\">Installation Instructions</h3>\n  Extract the ZIP file provided by the Get DSA Packager.<br/>\n  "+(J.kE(x,"Windows")?"    <p>\n    Navigate to the dglux-server folder in the extracted ZIP location.<br/>\n    Open a new Command Prompt here.<br/>\n    Run the following command:<br/>\n    <code>\n    bin\\daemon.bat start\n    </code><br/>\n  You should be able to access DGLux5 at: http://localhost:8080<br/>\n  Default credentials are: dgSuper / dglux1234<br/>\n    </p>\n\n    <p>Your DSA instance is now running!</p>\n    ":"  <p>\n  Open a Terminal and change to the dglux-server directory in the extracted ZIP location.<br/>\n  Run the following commands:<br/>\n  <code>\n  chmod 777 bin/*.sh<br/>\n  ./bin/daemon.sh start\n  </code><br/>\n  You should be able to access DGLux5 at: http://localhost:8080<br/>\n  Default credentials are: dgSuper / dglux1234<br/>\n  </p>\n\n  <p>Your DSA instance is now running!</p>\n  ")+"<br/>\n  If you have a license for a previous installation that was generated before the 8th of July in 2015, please request a new license, and a new one will be generated for you.<br/>\n  ",new B.S8())}},
@@ -16744,6 +16751,9 @@ C.Nk=new H.wv("dists")
 C.oF=new A.A7(C.Nk,C.RI,!1,C.tu,!1,C.Gp)
 C.hT=new H.wv("languages")
 C.fQ=new A.A7(C.hT,C.RI,!1,C.tu,!1,C.Gp)
+C.YM=new H.wv("supported")
+C.HL=H.K('a2')
+C.c3=new A.A7(C.YM,C.RI,!1,C.HL,!1,C.Gp)
 C.P=new H.wv("categories")
 C.Oh=new A.A7(C.P,C.RI,!1,C.tu,!1,C.Gp)
 C.RT=new P.a6(0)
@@ -16977,7 +16987,6 @@ C.XA=new H.wv("selectPrevious")
 C.aU=new H.wv("selected")
 C.Dd=new H.wv("show")
 C.qv=new H.wv("style")
-C.YM=new H.wv("supported")
 C.eM=new H.wv("title")
 C.JX=new H.wv("toString")
 C.jh=new H.wv("v")
@@ -17041,7 +17050,6 @@ C.La=H.K('R5')
 C.Jm=H.K('q6')
 C.Tj=H.K('Ek')
 C.Io=H.K('FJ')
-C.HL=H.K('a2')
 C.qJ=H.K('pG')
 C.qE=H.K('y0')
 C.CS=H.K('vm')
