@@ -8652,6 +8652,7 @@ sTp:function(a,b){this.b=F.Wi(this,C.Dd,this.b,b)},
 sYt:function(a,b){this.c=F.Wi(this,C.YM,this.c,b)},
 gMF:function(){return J.Tf(this.Q,"category")},
 gV3:function(a){return J.Tf(this.Q,"type")},
+goc:function(a){return J.Tf(this.Q,"name")},
 gVS:function(){var z=this.Q
 return z.x4("requires")===!0?J.Tf(z,"requires"):[]},
 p:function(a,b){return J.Tf(this.Q,b)}}}],["","",,M,{
