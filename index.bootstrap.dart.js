@@ -8437,8 +8437,8 @@ p=J.RE(q)
 p.sTp(q,p.gTp(q)===!0||J.mG(J.Tf(q.ghJ(),s),r))}}x.aN(y,new G.bf())},
 ig:function(a){var z,y,x,w,v
 this.fH(a)
-if(!(J.kE(window.navigator.userAgent,"Chrome")||J.kE(window.navigator.userAgent,"Chromium")))a.RZ=this.ct(a,C.YM,a.RZ,!1)
-K.HL().Z(new G.Vz(a))
+if(!(J.kE(window.navigator.userAgent,"Chrome")||J.kE(window.navigator.userAgent,"Chromium"))){a.RZ=this.ct(a,C.YM,a.RZ,!1)
+return}K.HL().Z(new G.Vz(a))
 K.Xt().Z(new G.Ms(a))
 z=H.Go(this.gKM(a).Q.p(0,"platform"),"$istc")
 z.toString

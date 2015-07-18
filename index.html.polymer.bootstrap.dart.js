@@ -9641,8 +9641,8 @@ gE3:function(a){return a.bN},
 sE3:function(a,b){a.bN=this.ct(a,C.P,a.bN,b)},
 ig:function(a){var z,y,x,w,v
 this.fH(a)
-if(!(J.kE(window.navigator.userAgent,"Chrome")||J.kE(window.navigator.userAgent,"Chromium")))a.RZ=this.ct(a,C.YM,a.RZ,!1)
-K.PO().Z(new G.Vz(a))
+if(!(J.kE(window.navigator.userAgent,"Chrome")||J.kE(window.navigator.userAgent,"Chromium"))){a.RZ=this.ct(a,C.YM,a.RZ,!1)
+return}K.PO().Z(new G.Vz(a))
 K.Xt().Z(new G.Ms(a))
 z=H.Go(this.gKM(a).Q.p(0,"platform"),"$isFq")
 z.toString
@@ -9909,7 +9909,7 @@ Is:{
 "^":"r:3;",
 $1:[function(a){var z,y
 z=J.RE(a)
-y=z.gTp(a)===!0&&z.gYt(a)===!0
+y=z.gTp(a)===!0&&z.gYt(a)===!0&&a.gwX()!==!0
 z.sw4(a,y)
 return y},null,null,2,0,null,4,"call"]},
 Ez:{
@@ -9943,6 +9943,8 @@ gMF:function(){return J.Tf(this.Q,"category")},
 gV3:function(a){return J.Tf(this.Q,"type")},
 gVS:function(){var z=this.Q
 return z.x4("requires")===!0?J.Tf(z,"requires"):[]},
+gwX:function(){var z=this.Q
+return z.x4("extra")===!0&&J.Tf(z,"extra")},
 p:function(a,b){return J.Tf(this.Q,b)}}}],["","",,M,{
 "^":"",
 ne:{

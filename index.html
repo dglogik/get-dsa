@@ -8552,9 +8552,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <template if="{{!supported}}">
       <h2 horizontal="" center-justified="" layout="" center="" text-center="">
-        We suggest using Google Chrome on desktop to build your DSA Package.
+        Please use Google Chrome on desktop to build your DSA Package.
       </h2>
     </template>
+
+    <template if="{{supported}}">
 
     <paper-dialog heading="Links" backdrop="true" transition="core-transition-center" autofocus="" id="links-dialog">
       <div horizontal="" justified="" layout="" flex="">
@@ -8681,6 +8683,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <div horizontal="" center-justified="" layout="">
       <div id="help"></div>
     </div>
+    </template>
   </template>
   
 

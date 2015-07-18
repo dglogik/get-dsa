@@ -8430,8 +8430,8 @@ p=J.RE(q)
 p.sTp(q,p.gTp(q)===!0||J.mG(J.Tf(q.ghJ(),s),r))}}x.aN(y,new G.bf())},
 ig:function(a){var z,y,x,w,v
 this.fH(a)
-if(!(J.kE(window.navigator.userAgent,"Chrome")||J.kE(window.navigator.userAgent,"Chromium")))a.RZ=this.ct(a,C.K6,a.RZ,!1)
-K.PO().Z(new G.Ms(a))
+if(!(J.kE(window.navigator.userAgent,"Chrome")||J.kE(window.navigator.userAgent,"Chromium"))){a.RZ=this.ct(a,C.K6,a.RZ,!1)
+return}K.PO().Z(new G.Ms(a))
 K.Xt().Z(new G.Jc(a))
 z=H.Go(this.gKM(a).Q.p(0,"platform"),"$isFq")
 z.toString
