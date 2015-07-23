@@ -10185,7 +10185,7 @@ o=new T.Cg(H.d(b)+"/bin/"+H.d(q)+".sh",p.length,null,0,0,null,!0,null,null,!0,0,
 n=H.RB(p,"$isWO",[P.KN],"$asWO")
 if(n){o.cx=p
 o.ch=T.bQ(p,0,null,0)}o.b=777
-z.push(o)}else if(u){p=C.xM.gZE().WJ("@echo off\nset me=%~f0\nset me=%me:~0,-4%\n%~0\\..\\..\\..\\dart-sdk\\bin\\dart.exe %me%.dart %*\n")
+z.push(o)}else if(u){p=C.xM.gZE().WJ("@echo off\nset me=%~f0\nset me=%me:~0,-4%\n%~0\\..\\..\\..\\dart-sdk\\bin\\dart.exe \"%me%.dart\" %*\n")
 o=new T.Cg(H.d(b)+"/bin/"+H.d(q)+".bat",p.length,null,0,0,null,!0,null,null,!0,0,null,null)
 n=H.RB(p,"$isWO",[P.KN],"$asWO")
 if(n){o.cx=p
