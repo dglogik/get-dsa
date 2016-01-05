@@ -9606,7 +9606,7 @@ y=z[b]
 x=this.b
 if(x!=null){w=x.d
 x=w==null?x!=null:w!==x}else x=!1
-if(x){x=[y]
+if(x&&!J.h(y,c)){x=[y]
 this.ce(new G.ay(this,H.a(new P.aU(x),[null]),x,b,1))}if(b>=z.length)return H.f(z,b)
 z[b]=c},
 gA:function(a){return P.aD.prototype.gA.call(this,this)},
