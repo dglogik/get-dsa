@@ -9034,7 +9034,7 @@ case 2:return P.o(v,1,y)}})
 return P.o(null,$async$ea,y,null)},
 m:{
 rd:function(a){var z,y,x,w,v,u,t,s,r,q
-z=P.a2(["x86 Windows","windows-ia32","x64 Windows","windows-x64","x86 Linux","linux-ia32","x64 Linux","linux-x64","x64 Linux (Static)","x64_Linux_StaticGLibC","x86 Mac OS","macos-ia32","x64 Mac OS","macos-x64","ARM Linux","linux-arm","Dreamplug","dreamplug","Beaglebone","beaglebone","MIPS Creator CI20","ci20","ARM am335x","am335x","ARM Android","android"])
+z=P.a2(["x86 Windows","windows-ia32","x64 Windows","windows-x64","x86 Linux","linux-ia32","x64 Linux","linux-x64","x64 Linux (Static)","x64_Linux_StaticGLibC","x86 Mac OS","macos-ia32","x64 Mac OS","macos-x64","ARMv7 Linux","linux-arm","ARMv6 Linux","armv6","Dreamplug","dreamplug","Beaglebone","beaglebone","MIPS Creator CI20","ci20","ARM am335x","am335x","ARM Android","android"])
 z=R.cg(z)
 y=R.cg([])
 x=R.cg([])
