@@ -7646,187 +7646,140 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <template if="{{supported}}">
 
-      <paper-dialog heading="Links" backdrop="true" transition="core-transition-center" autofocus="" id="links-dialog">
-        <div horizontal="" justified="" layout="" flex="">
-          <div flex="" vertical="" layout="" start-justified="">
-            <!--<paper-button raised on-tap="{{selectAllLinks}}" style="width: 256px;">Select All</paper-button>-->
-            <h3>Filters</h3>
-            <div>
-              <h4>Languages</h4>
-              <template repeat="{{language in languages}}">
-                <core-label style="margin-bottom: 10px;" horizontal="" layout="">
-                  <paper-checkbox style="margin-right: 10px;" checked="{{language.filtered}}"></paper-checkbox>
-                  <div>{{language.name}}</div>
-                </core-label>
-              </template>
+    <paper-dialog heading="Links" backdrop="true" transition="core-transition-center" autofocus="" id="links-dialog">
+      <div horizontal="" justified="" layout="" flex="">
+        <div flex="" vertical="" layout="" start-justified="">
+          <!--<paper-button raised on-tap="{{selectAllLinks}}" style="width: 256px;">Select All</paper-button>-->
+          <h3>Filters</h3>
+          <div>
+            <h4>Languages</h4>
+            <template repeat="{{language in languages}}">
+              <core-label style="margin-bottom: 10px;" horizontal="" layout="">
+                <paper-checkbox style="margin-right: 10px;" checked="{{language.filtered}}"></paper-checkbox>
+                <div>{{language.name}}</div>
+              </core-label>
+            </template>
 
-              <h4>Categories</h4>
-              <template repeat="{{category in categories}}">
-                <core-label style="margin-bottom: 10px;" horizontal="" layout="">
-                  <paper-checkbox style="margin-right: 10px;" checked="{{category.filtered}}"></paper-checkbox>
-                  <div>{{category.name}}</div>
-                </core-label>
-              </template>
-            </div>
-          </div>
-
-          <div flex="" horizontal="" layout="" end-justified="">
-            <div flex="" vertical="" layout="" start-justified="" justified="">
-              <paper-button raised="" on-tap="{{closeLinksDialog}}" style="margin-bottom: 20px;">Close</paper-button>
-
-              <paper-table id="link-table">
-                <paper-table-header>
-                  <paper-table-row>
-                    <paper-table-cell>Selected</paper-table-cell>
-                    <paper-table-cell>Name</paper-table-cell>
-                    <paper-table-cell>Category</paper-table-cell>
-                    <paper-table-cell>Language</paper-table-cell>
-                  </paper-table-row>
-                </paper-table-header>
-                <paper-table-body>
-                  <template repeat="{{link in links}}">
-                    <template if="{{link.show &amp;&amp; link.supported}}">
-                      <paper-table-row>
-                        <paper-table-cell>
-                          <paper-checkbox checked="{{link.selected}}"></paper-checkbox>
-                        </paper-table-cell>
-                        <paper-table-cell>{{link.displayName}}</paper-table-cell>
-                        <paper-table-cell>{{link.category}}</paper-table-cell>
-                        <paper-table-cell>{{link.language}}</paper-table-cell>
-                      </paper-table-row>
-                    </template>
-                  </template>
-                </paper-table-body>
-              </paper-table>
-            </div>
+            <h4>Categories</h4>
+            <template repeat="{{category in categories}}">
+              <core-label style="margin-bottom: 10px;" horizontal="" layout="">
+                <paper-checkbox style="margin-right: 10px;" checked="{{category.filtered}}"></paper-checkbox>
+                <div>{{category.name}}</div>
+              </core-label>
+            </template>
           </div>
         </div>
-      </paper-dialog>
 
-      <paper-dialog heading="EULA" backdrop="true" transition="core-transition-center" autofocus="" id="eula-dialog">
-        <iframe src="lib/dglux_eula.html"></iframe>
-        <paper-button id="eula-agree" raised="" on-tap="{{onEulaAgree}}"></paper-button>
-        <paper-button id="eula-cancel" on-tap="{{onEulaCancel}}"></paper-button>
-      </paper-dialog>
+        <div flex="" horizontal="" layout="" end-justified="">
+          <div flex="" vertical="" layout="" start-justified="" justified="">
+            <paper-button raised="" on-tap="{{closeLinksDialog}}" style="margin-bottom: 20px;">Close</paper-button>
 
-      <div id="nm" horizontal="" layout="" center-justified="">
-        <div class="configs" vertical="" layout="" center-justified="">
-          <core-label horizontal="" layout="">
-            <div vertical="" layout="">
-              <h4 field-name="">Platform</h4>
-            </div>
-            <paper-dropdown-menu label="Platform">
-              <paper-dropdown class="dropdown">
-                <core-menu id="platform" class="menu" valueattr="value">
-                  <template repeat="{{platform in platforms.keys}}">
-                    <paper-item value="{{platform}}">{{platform}}</paper-item>
+            <paper-table id="link-table">
+              <paper-table-header>
+                <paper-table-row>
+                  <paper-table-cell>Selected</paper-table-cell>
+                  <paper-table-cell>Name</paper-table-cell>
+                  <paper-table-cell>Category</paper-table-cell>
+                  <paper-table-cell>Language</paper-table-cell>
+                </paper-table-row>
+              </paper-table-header>
+              <paper-table-body>
+                <template repeat="{{link in links}}">
+                  <template if="{{link.show &amp;&amp; link.supported}}">
+                    <paper-table-row>
+                      <paper-table-cell>
+                        <paper-checkbox checked="{{link.selected}}"></paper-checkbox>
+                      </paper-table-cell>
+                      <paper-table-cell>{{link.displayName}}</paper-table-cell>
+                      <paper-table-cell>{{link.category}}</paper-table-cell>
+                      <paper-table-cell>{{link.language}}</paper-table-cell>
+                    </paper-table-row>
                   </template>
-                </core-menu>
-              </paper-dropdown>
-            </paper-dropdown-menu>
-          </core-label>
-
-          <core-label horizontal="" layout="">
-            <div vertical="" layout="">
-              <h4 field-name="">Distribution Type</h4>
-            </div>
-
-            <paper-dropdown-menu label="Distribution Type">
-              <paper-dropdown class="dropdown">
-                <core-menu id="dist-type" class="menu" valueattr="value">
-                  <template repeat="{{dist in dists}}">
-                    <paper-item value="{{dist.id}}">{{dist.name}}</paper-item>
-                  </template>
-                </core-menu>
-              </paper-dropdown>
-            </paper-dropdown-menu>
-
-            <paper-menu-button center="" id="sdb" class="dd-m-b">
-              <paper-icon-button icon="settings" id="sdb-ib"></paper-icon-button>
-              <paper-dropdown id="sdb-dd" class="dropdown constrained-height">
-                <core-menu id="sdb-dm" class="menu">
-                  <template repeat="{{v in distv}}">
-                    <paper-item>{{v}}</paper-item>
-                  </template>
-                </core-menu>
-              </paper-dropdown>
-            </paper-menu-button>
-          </core-label>
-
-          <core-label horizontal="" layout="" class="bottom-padding-twenty">
-            <div vertical="" layout="">
-              <div field-name="">
-                <h4>Links</h4>
-              </div>
-            </div>
-
-            <div vertical="" layout="" flex="" class="constrained-height">
-              <div horizontal="" layout="" center="" flex="">
-                <paper-button raised="" style="width: 100%;" id="links-btn" on-tap="{{openLinksDialog}}">Select Links
-                </paper-button>
-              </div>
-
-              <p text-center="" id="links-count">0 links selected.</p>
-            </div>
-          </core-label>
-
-          <paper-button raised="" on-tap="{{createDistPackage}}">Build Package</paper-button>
-          <div horizontal="" center-justified="" layout="">
-            <paper-spinner inline-block="" self-center="" id="spinner"></paper-spinner>
-            <span>&nbsp;</span>
-            <p self-center="" id="status"></p>
+                </template>
+              </paper-table-body>
+            </paper-table>
           </div>
         </div>
       </div>
+    </paper-dialog>
 
-      <div horizontal="" center-justified="" layout="">
-        <div id="help"></div>
+    <div id="nm" horizontal="" layout="" center-justified="">
+      <div class="configs" vertical="" layout="" center-justified="">
+        <core-label horizontal="" layout="">
+          <div vertical="" layout="">
+            <h4 field-name="">Platform</h4>
+          </div>
+          <paper-dropdown-menu label="Platform">
+            <paper-dropdown class="dropdown">
+              <core-menu id="platform" class="menu" valueattr="value">
+                <template repeat="{{platform in platforms.keys}}">
+                  <paper-item value="{{platform}}">{{platform}}</paper-item>
+                </template>
+              </core-menu>
+            </paper-dropdown>
+          </paper-dropdown-menu>
+        </core-label>
+
+        <core-label horizontal="" layout="">
+          <div vertical="" layout="">
+            <h4 field-name="">Distribution Type</h4>
+          </div>
+
+          <paper-dropdown-menu label="Distribution Type">
+            <paper-dropdown class="dropdown">
+              <core-menu id="dist-type" class="menu" valueattr="value">
+                <template repeat="{{dist in dists}}">
+                  <paper-item value="{{dist.id}}">{{dist.name}}</paper-item>
+                </template>
+              </core-menu>
+            </paper-dropdown>
+          </paper-dropdown-menu>
+
+          <paper-menu-button center="" id="sdb" class="dd-m-b">
+            <paper-icon-button icon="settings" id="sdb-ib"></paper-icon-button>
+            <paper-dropdown id="sdb-dd" class="dropdown constrained-height">
+              <core-menu id="sdb-dm" class="menu">
+                <template repeat="{{v in distv}}">
+                  <paper-item>{{v}}</paper-item>
+                </template>
+              </core-menu>
+            </paper-dropdown>
+          </paper-menu-button>
+        </core-label>
+
+        <core-label horizontal="" layout="" class="bottom-padding-twenty">
+          <div vertical="" layout="">
+            <div field-name="">
+              <h4>Links</h4>
+            </div>
+          </div>
+
+          <div vertical="" layout="" flex="" class="constrained-height">
+            <div horizontal="" layout="" center="" flex="">
+              <paper-button raised="" style="width: 100%;" id="links-btn" on-tap="{{openLinksDialog}}">Select Links</paper-button>
+            </div>
+
+            <p text-center="" id="links-count">0 links selected.</p>
+          </div>
+        </core-label>
+
+        <paper-button raised="" on-tap="{{createDistPackage}}">Build Package</paper-button>
+        <div horizontal="" center-justified="" layout="">
+          <paper-spinner inline-block="" self-center="" id="spinner"></paper-spinner>
+          <span>&nbsp;</span>
+          <p self-center="" id="status"></p>
+        </div>
       </div>
+    </div>
+
+    <div horizontal="" center-justified="" layout="">
+      <div id="help"></div>
+    </div>
     </template>
   </template>
   
 
-  <script>function download(e, t, n) {
-    function o(e) {
-      var t = e.split(/[:;,]/), n = t[1], o = "base64" == t[2] ? atob : decodeURIComponent, a = o(t.pop()), r = a.length, i = 0, d = new Uint8Array(r);
-      for (i; r > i; ++i)d[i] = a.charCodeAt(i);
-      return new p([d], {type: n})
-    }
-
-    function a(e, t) {
-      if ("download" in f)return f.href = e, f.setAttribute("download", v), f.innerHTML = "downloading...", s.body.appendChild(f), setTimeout(function () {
-        f.click(), s.body.removeChild(f), t === !0 && setTimeout(function () {
-          l.URL.revokeObjectURL(f.href)
-        }, 250)
-      }, 66), !0;
-      var n = s.createElement("iframe");
-      s.body.appendChild(n), t || (e = "data:" + e.replace(/^data:([\w\/\-\+]+)/, c)), n.src = e, setTimeout(function () {
-        s.body.removeChild(n)
-      }, 333)
-    }
-
-    var r, i, d, l = window, c = "application/octet-stream", u = n || c, b = e, s = document, f = s.createElement("a"), m = function (e) {
-      return String(e)
-    }, p = l.Blob || l.MozBlob || l.WebKitBlob || m, w = l.MSBlobBuilder || l.WebKitBlobBuilder || l.BlobBuilder, v = t || "download";
-    if ("true" === String(this) && (b = [b, u], u = b[0], b = b[1]), String(b).match(/^data\:[\w+\-]+\/[\w+\-]+[,;]/))return navigator.msSaveBlob ? navigator.msSaveBlob(o(b), v) : a(b);
-    try {
-      r = b instanceof p ? b : new p([b], {type: u})
-    } catch (B) {
-      w && (i = new w, i.append([b]), r = i.getBlob(u))
-    }
-    if (navigator.msSaveBlob)return navigator.msSaveBlob(r, v);
-    if (l.URL)a(l.URL.createObjectURL(r), !0); else {
-      if ("string" == typeof r || r.constructor === m)try {
-        return a("data:" + u + ";base64," + l.btoa(r))
-      } catch (B) {
-        return a("data:" + u + "," + encodeURIComponent(r))
-      }
-      d = new FileReader, d.onload = function () {
-        a(this.result)
-      }, d.readAsDataURL(r)
-    }
-    return !0
-  }</script>
+  <script>function download(e,t,n){function o(e){var t=e.split(/[:;,]/),n=t[1],o="base64"==t[2]?atob:decodeURIComponent,a=o(t.pop()),r=a.length,i=0,d=new Uint8Array(r);for(i;r>i;++i)d[i]=a.charCodeAt(i);return new p([d],{type:n})}function a(e,t){if("download"in f)return f.href=e,f.setAttribute("download",v),f.innerHTML="downloading...",s.body.appendChild(f),setTimeout(function(){f.click(),s.body.removeChild(f),t===!0&&setTimeout(function(){l.URL.revokeObjectURL(f.href)},250)},66),!0;var n=s.createElement("iframe");s.body.appendChild(n),t||(e="data:"+e.replace(/^data:([\w\/\-\+]+)/,c)),n.src=e,setTimeout(function(){s.body.removeChild(n)},333)}var r,i,d,l=window,c="application/octet-stream",u=n||c,b=e,s=document,f=s.createElement("a"),m=function(e){return String(e)},p=l.Blob||l.MozBlob||l.WebKitBlob||m,w=l.MSBlobBuilder||l.WebKitBlobBuilder||l.BlobBuilder,v=t||"download";if("true"===String(this)&&(b=[b,u],u=b[0],b=b[1]),String(b).match(/^data\:[\w+\-]+\/[\w+\-]+[,;]/))return navigator.msSaveBlob?navigator.msSaveBlob(o(b),v):a(b);try{r=b instanceof p?b:new p([b],{type:u})}catch(B){w&&(i=new w,i.append([b]),r=i.getBlob(u))}if(navigator.msSaveBlob)return navigator.msSaveBlob(r,v);if(l.URL)a(l.URL.createObjectURL(r),!0);else{if("string"==typeof r||r.constructor===m)try{return a("data:"+u+";base64,"+l.btoa(r))}catch(B){return a("data:"+u+","+encodeURIComponent(r))}d=new FileReader,d.onload=function(){a(this.result)},d.readAsDataURL(r)}return!0}</script>
 </polymer-element>
 <style>body {
     display: block;
