@@ -1,7 +1,10 @@
 (function(){var supportsDirectProtoAccess=function(){var z=function(){}
 z.prototype={p:{}}
 var y=new z()
-return y.__proto__&&y.__proto__.p===z.prototype.p}()
+if(!(y.__proto__&&y.__proto__.p===z.prototype.p))return false
+try{if(typeof navigator!="undefined"&&typeof navigator.userAgent=="string"&&navigator.userAgent.indexOf("Chrome/")>=0)return true
+if(typeof version=="function"&&version.length==0){var x=version()
+if(/^\d+\.\d+\.\d+\.\d+$/.test(x))return true}}catch(w){}return false}()
 function map(a){a=Object.create(null)
 a.x=0
 delete a.x
