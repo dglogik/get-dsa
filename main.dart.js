@@ -29172,7 +29172,7 @@ if(z.bs(t,0)&&z.cR(t,255))continue
 throw H.d(new P.bt("Invalid byte "+(z.an(t,0)?"-":"")+"0x"+J.EI(z.hV(t),16)+".",a,w))}throw H.d("unreachable")},
 HQ:{"^":"h4;",
 f2:function(a){return R.U1(a,0,J.an(a))},
-$ash4:function(){return[[P.k,P.z],P.p]}}}],["","",,Q,{"^":"",m1:{"^":"b;CD:a<,AD:b<,va:c<,oc:d>,e,uG:f<,uA:r<,uC:x<,uE:y<,z,Q",
+$ash4:function(){return[[P.k,P.z],P.p]}}}],["","",,Q,{"^":"",m1:{"^":"b;CD:a<,AD:b<,va:c<,oc:d>,e,uG:f<,uA:r<,uC:x<,uE:y<,Da:z<,Q,ch",
 gtp:function(a){return F.nb(C.j5,null,null)},
 guH:function(){var z=this.f
 return J.an(z.gaU())>0?J.dU(J.c2(z.gaU())):"Platform"},
@@ -29182,11 +29182,6 @@ return J.an(z.gaU())>0?J.dU(J.c2(z.gaU())):"Distribution"},
 gBB:function(){return F.nb($.$get$jC(),null,null)},
 go_:function(){var z=this.x
 return J.an(z.gaU())>0?J.dU(J.c2(z.gaU())):"latest"},
-gDa:function(){var z,y
-z=$.$get$hU()
-y=new F.u6(new P.B(null,null,0,null,null,null,null,[[P.k,F.aF]]),null,null,[null])
-y.sd7(z)
-return y},
 guF:function(){return""+J.an(this.y.gaU())+" links selected"},
 ed:[function(){var z=0,y=P.aN(),x=[],w=this,v,u,t,s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,c,b,a,a0,a1,a2,a3
 var $async$ed=P.aL(function(a5,a6){if(a5===1)return P.aO(a6,y)
@@ -29282,9 +29277,17 @@ this.f.ge2().I(new Q.F8(this))
 K.lF().aH(new Q.F9(this))
 K.lG().aH(new Q.Fa(this))},
 v:{
-qs:function(){var z=new Q.m1("You must select a platform for installation help.","Platform and Distribution are required.",!0,"",null,Z.ec(!1,Z.ep(),C.a,null),Z.ec(!1,Z.ep(),C.a,null),Z.ec(!1,Z.ep(),C.a,null),Z.ec(!0,Z.ep(),C.a,null),[],[])
-z.vN()
-return z}}},F7:{"^":"a:194;a",
+qs:function(){var z,y,x,w,v,u
+z=Z.ec(!1,Z.ep(),C.a,null)
+y=Z.ec(!1,Z.ep(),C.a,null)
+x=Z.ec(!1,Z.ep(),C.a,null)
+w=Z.ec(!0,Z.ep(),C.a,null)
+v=$.$get$hU()
+u=new F.u6(new P.B(null,null,0,null,null,null,null,[[P.k,F.aF]]),null,null,[null])
+u.sd7(v)
+u=new Q.m1("You must select a platform for installation help.","Platform and Distribution are required.",!0,"",null,z,y,x,w,u,[],[])
+u.vN()
+return u}}},F7:{"^":"a:194;a",
 $1:[function(a){var z=0,y=P.aN(),x=this,w,v
 var $async$$1=P.aL(function(b,c){if(b===1)return P.aO(c,y)
 while(true)switch(z){case 0:w=x.a
@@ -29306,7 +29309,7 @@ $1:[function(a){J.c0(a,new Q.F1())
 this.a.e=a},null,null,2,0,null,124,"call"]},F1:{"^":"a:1;",
 $1:[function(a){var z=J.h(a)
 $.$get$m2().push(new Q.bh(z.gaV(a),z.gZ(a)))},null,null,2,0,null,125,"call"]},Fa:{"^":"a:1;a",
-$1:[function(a){var z=this.a.z
+$1:[function(a){var z=this.a.Q
 C.b.al(z,J.eZ(a,new Q.EZ()))
 C.b.kP(z,new Q.F_())
 C.b.a2(z,new Q.F0())},null,null,2,0,null,126,"call"]},EZ:{"^":"a:1;",
@@ -29320,7 +29323,7 @@ J.b1(C.b.d1($.$get$hU(),new Q.EY(z)),new Q.bh(J.et(a),a.gjN()))}},EX:{"^":"a:1;a
 $1:function(a){return J.u(a.gfu(),this.a)}},EY:{"^":"a:1;a",
 $1:function(a){return J.u(a.gfu(),this.a)}},F4:{"^":"a:1;a",
 $1:function(a){return J.u(J.pW(a),J.hL(J.c2(this.a.r.gaU())))}},F5:{"^":"a:1;a,b",
-$1:function(a){var z=this.a.z
+$1:function(a){var z=this.a.Q
 z=new H.di(z,new Q.F3(a),[H.t(z,0)])
 this.b.push(z.ga6(z))}},F3:{"^":"a:1;a",
 $1:function(a){return J.u(J.et(a),J.hL(this.a))}},F6:{"^":"a:195;",
