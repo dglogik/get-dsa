@@ -288,6 +288,7 @@ material-drawer [label] material-icon {
 }
 .packager .options > material-button {
   margin: 16px 0 8px 0;
+  padding: 0 25px;
   border-radius: 100px;
 }
 .packager #status {
@@ -322,6 +323,10 @@ material-drawer [label] material-icon {
 }
 .packager .dropdown-select-holder > * {
   flex: 1;
+}
+
+.build-button-label {
+  text-transform: none;
 }
 
 .help {
