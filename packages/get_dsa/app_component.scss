@@ -5,9 +5,17 @@
 @import 'package:angular_components/material_button/mixins';
 @import 'package:angular_components/material_progress/mixins';
 
+// ** MATERIAL OVERRIDES **
+
+$mat-font-family: 'Open Sans', sans-serif;
+
+* {
+  font-family: $mat-font-family !important;
+}
+
 // ** COLORS **
 
-$dsa-color: #00bee2;
+$atrius-color: #0a99d5;
 
 // differs/absent from angular_components, but consistent with Material spec
 // https://material.io/guidelines/style/color.html#color-usability
@@ -17,7 +25,7 @@ $mat-hint-txt: rgba(black,0.5);
 
 // ** DIMENSIONS **
 
-$options-width: 400px;
+$options-width: 550px;
 
 // ** MIXINS **
 
@@ -36,8 +44,13 @@ $options-width: 400px;
 // ** STYLES **
 
 :host {
-  @include button-background-color('#build-button', $dsa-color);
+  @include button-background-color('#build-button', $atrius-color);
   @include button-color('#build-button', $mat-white);
+}
+
+.logo {
+  text-align: center;
+  padding: 20px;
 }
 
 .packager {
@@ -56,7 +69,7 @@ $options-width: 400px;
     .material-header {
       margin-bottom: 8px;
 
-      background: $dsa-color;
+      background: #333e48; // dark grey
 
       &, & > div {
         border-top-left-radius: 2px;
@@ -91,8 +104,9 @@ $options-width: 400px;
 
     & > material-button {
       margin: 16px 0 8px 0;
+      border-radius: 100px;
     }
-  }  
+  }
 
   #status {
     margin-top: 16px;
@@ -101,9 +115,9 @@ $options-width: 400px;
     color: $mat-hint-txt;
 
     @include material-progress-theme(
-          $indeterminate-color: lighten($dsa-color, 10%),
-          $active-color: $dsa-color,
-          $secondary-color: darken($dsa-color, 30%));
+          $indeterminate-color: lighten($atrius-color, 10%),
+          $active-color: $atrius-color,
+          $secondary-color: darken($atrius-color, 30%));
   }
 }
 
@@ -122,4 +136,8 @@ $options-width: 400px;
   & > * {
     flex: 1;
   }
+}
+
+.help {
+  padding: 20px;
 }

@@ -219,11 +219,15 @@ material-drawer [label] material-icon {
   margin-right: 32px;
 }
 
+* {
+  font-family: "Open Sans", sans-serif !important;
+}
+
 :host ::ng-deep #build-button:not([disabled]) {
-  background-color: #00bee2;
+  background-color: #0a99d5;
 }
 :host ::ng-deep #build-button:not([disabled]):not([icon]):not([raised]):not(.xyzxyz):hover {
-  background-color: #00bee2;
+  background-color: #0a99d5;
 }
 :host ::ng-deep #build-button:not([disabled]) > .content {
   color: #fff;
@@ -232,13 +236,18 @@ material-drawer [label] material-icon {
   color: #fff;
 }
 
+.logo {
+  text-align: center;
+  padding: 20px;
+}
+
 .packager {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 .packager .options {
-  width: 400px;
+  width: 550px;
   padding-bottom: 8px;
   background-color: #fafafa;
   border-radius: 2px;
@@ -250,7 +259,7 @@ material-drawer [label] material-icon {
 }
 .packager .options .material-header {
   margin-bottom: 8px;
-  background: #00bee2;
+  background: #333e48;
 }
 .packager .options .material-header, .packager .options .material-header > div {
   border-top-left-radius: 2px;
@@ -279,23 +288,24 @@ material-drawer [label] material-icon {
 }
 .packager .options > material-button {
   margin: 16px 0 8px 0;
+  border-radius: 100px;
 }
 .packager #status {
   margin-top: 16px;
-  width: 400px;
+  width: 550px;
   color: rgba(0, 0, 0, 0.5);
 }
 .packager #status ::ng-deep material-progress .progress-container.indeterminate {
-  background-color: #16daff;
+  background-color: #1eb5f4;
 }
 .packager #status ::ng-deep material-progress .progress-container.indeterminate > .secondary-progress {
-  background-color: #00bee2;
+  background-color: #0a99d5;
 }
 .packager #status ::ng-deep material-progress .active-progress {
-  background-color: #00bee2;
+  background-color: #0a99d5;
 }
 .packager #status ::ng-deep material-progress .secondary-progress {
-  background-color: #003d49;
+  background-color: #033043;
 }
 
 .packager .configLabel {
@@ -312,4 +322,8 @@ material-drawer [label] material-icon {
 }
 .packager .dropdown-select-holder > * {
   flex: 1;
+}
+
+.help {
+  padding: 20px;
 }
