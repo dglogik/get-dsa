@@ -29315,6 +29315,7 @@ this.r.ge3().I(new Q.Fc(this))
 this.nB()
 K.lK().aH(new Q.Fd(this))
 if(J.et(window.location.host,"dglogik.com")){new Q.Fe().$0()
+this.b="Platform is required."
 this.cy=!0}},
 v:{
 qw:function(){var z,y,x,w,v,u
