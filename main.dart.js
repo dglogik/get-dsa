@@ -29369,8 +29369,8 @@ return P.aM($async$$0,y)}},Fk:{"^":"a:1;a",
 $1:[function(a){var z,y,x,w
 C.b.sk($.$get$hU(),0)
 z=Q.b9
-y=F.kd([],"Current",null,z)
-x=F.kd([],"Archived",null,z)
+y=F.kd([],"DG Solution Builder",null,z)
+x=F.kd([],"DGLux",null,z)
 $.$get$hU().push(y)
 $.$get$hU().push(x)
 J.c0(a,new Q.Fj(y,x))
@@ -33119,14 +33119,139 @@ C.h7=new L.fb("check_box")
 C.d2=new L.fb("check_box_outline_blank")
 C.h8=new L.fb("radio_button_checked")
 C.d3=new L.fb("radio_button_unchecked")
-C.hl=function() {  var toStringFunction = Object.prototype.toString;  function getTag(o) {    var s = toStringFunction.call(o);    return s.substring(8, s.length - 1);  }  function getUnknownTag(object, tag) {    if (/^HTML[A-Z].*Element$/.test(tag)) {      var name = toStringFunction.call(object);      if (name == "[object Object]") return null;      return "HTMLElement";    }  }  function getUnknownTagGenericBrowser(object, tag) {    if (self.HTMLElement && object instanceof HTMLElement) return "HTMLElement";    return getUnknownTag(object, tag);  }  function prototypeForTag(tag) {    if (typeof window == "undefined") return null;    if (typeof window[tag] == "undefined") return null;    var constructor = window[tag];    if (typeof constructor != "function") return null;    return constructor.prototype;  }  function discriminator(tag) { return null; }  var isBrowser = typeof navigator == "object";  return {    getTag: getTag,    getUnknownTag: isBrowser ? getUnknownTagGenericBrowser : getUnknownTag,    prototypeForTag: prototypeForTag,    discriminator: discriminator };}
+C.hl=function() {
+  var toStringFunction = Object.prototype.toString;
+  function getTag(o) {
+    var s = toStringFunction.call(o);
+    return s.substring(8, s.length - 1);
+  }
+  function getUnknownTag(object, tag) {
+    if (/^HTML[A-Z].*Element$/.test(tag)) {
+      var name = toStringFunction.call(object);
+      if (name == "[object Object]") return null;
+      return "HTMLElement";
+    }
+  }
+  function getUnknownTagGenericBrowser(object, tag) {
+    if (self.HTMLElement && object instanceof HTMLElement) return "HTMLElement";
+    return getUnknownTag(object, tag);
+  }
+  function prototypeForTag(tag) {
+    if (typeof window == "undefined") return null;
+    if (typeof window[tag] == "undefined") return null;
+    var constructor = window[tag];
+    if (typeof constructor != "function") return null;
+    return constructor.prototype;
+  }
+  function discriminator(tag) { return null; }
+
+  var isBrowser = typeof navigator == "object";
+
+  return {
+    getTag: getTag,
+    getUnknownTag: isBrowser ? getUnknownTagGenericBrowser : getUnknownTag,
+    prototypeForTag: prototypeForTag,
+    discriminator: discriminator };
+}
 C.d6=function(hooks) { return hooks; }
-C.hm=function(hooks) {  if (typeof dartExperimentalFixupGetTag != "function") return hooks;  hooks.getTag = dartExperimentalFixupGetTag(hooks.getTag);}
-C.hn=function(hooks) {  var getTag = hooks.getTag;  var prototypeForTag = hooks.prototypeForTag;  function getTagFixed(o) {    var tag = getTag(o);    if (tag == "Document") {      // "Document", so we check for the xmlVersion property, which is the empty      if (!!o.xmlVersion) return "!Document";      return "!HTMLDocument";    }    return tag;  }  function prototypeForTagFixed(tag) {    if (tag == "Document") return null;    return prototypeForTag(tag);  }  hooks.getTag = getTagFixed;  hooks.prototypeForTag = prototypeForTagFixed;}
-C.ho=function(hooks) {  var userAgent = typeof navigator == "object" ? navigator.userAgent : "";  if (userAgent.indexOf("Firefox") == -1) return hooks;  var getTag = hooks.getTag;  var quickMap = {    "BeforeUnloadEvent": "Event",    "DataTransfer": "Clipboard",    "GeoGeolocation": "Geolocation",    "Location": "!Location",    "WorkerMessageEvent": "MessageEvent",    "XMLDocument": "!Document"};  function getTagFirefox(o) {    var tag = getTag(o);    return quickMap[tag] || tag;  }  hooks.getTag = getTagFirefox;}
-C.d7=function getTagFallback(o) {  var s = Object.prototype.toString.call(o);  return s.substring(8, s.length - 1);}
-C.hp=function(hooks) {  var userAgent = typeof navigator == "object" ? navigator.userAgent : "";  if (userAgent.indexOf("Trident/") == -1) return hooks;  var getTag = hooks.getTag;  var quickMap = {    "BeforeUnloadEvent": "Event",    "DataTransfer": "Clipboard",    "HTMLDDElement": "HTMLElement",    "HTMLDTElement": "HTMLElement",    "HTMLPhraseElement": "HTMLElement",    "Position": "Geoposition"  };  function getTagIE(o) {    var tag = getTag(o);    var newTag = quickMap[tag];    if (newTag) return newTag;    if (tag == "Object") {      if (window.DataView && (o instanceof window.DataView)) return "DataView";    }    return tag;  }  function prototypeForTagIE(tag) {    var constructor = window[tag];    if (constructor == null) return null;    return constructor.prototype;  }  hooks.getTag = getTagIE;  hooks.prototypeForTag = prototypeForTagIE;}
-C.hq=function(getTagFallback) {  return function(hooks) {    if (typeof navigator != "object") return hooks;    var ua = navigator.userAgent;    if (ua.indexOf("DumpRenderTree") >= 0) return hooks;    if (ua.indexOf("Chrome") >= 0) {      function confirm(p) {        return typeof window == "object" && window[p] && window[p].name == p;      }      if (confirm("Window") && confirm("HTMLElement")) return hooks;    }    hooks.getTag = getTagFallback;  };}
+C.hm=function(hooks) {
+  if (typeof dartExperimentalFixupGetTag != "function") return hooks;
+  hooks.getTag = dartExperimentalFixupGetTag(hooks.getTag);
+}
+C.hn=function(hooks) {
+  var getTag = hooks.getTag;
+  var prototypeForTag = hooks.prototypeForTag;
+  function getTagFixed(o) {
+    var tag = getTag(o);
+    if (tag == "Document") {
+      // "Document", so we check for the xmlVersion property, which is the empty
+      if (!!o.xmlVersion) return "!Document";
+      return "!HTMLDocument";
+    }
+    return tag;
+  }
+
+  function prototypeForTagFixed(tag) {
+    if (tag == "Document") return null;    return prototypeForTag(tag);
+  }
+
+  hooks.getTag = getTagFixed;
+  hooks.prototypeForTag = prototypeForTagFixed;
+}
+C.ho=function(hooks) {
+  var userAgent = typeof navigator == "object" ? navigator.userAgent : "";
+  if (userAgent.indexOf("Firefox") == -1) return hooks;
+
+  var getTag = hooks.getTag;
+
+  var quickMap = {
+    "BeforeUnloadEvent": "Event",
+    "DataTransfer": "Clipboard",
+    "GeoGeolocation": "Geolocation",
+    "Location": "!Location",    "WorkerMessageEvent": "MessageEvent",
+    "XMLDocument": "!Document"};
+
+  function getTagFirefox(o) {
+    var tag = getTag(o);
+    return quickMap[tag] || tag;
+  }
+
+  hooks.getTag = getTagFirefox;
+}
+C.d7=function getTagFallback(o) {
+  var s = Object.prototype.toString.call(o);
+  return s.substring(8, s.length - 1);
+}
+C.hp=function(hooks) {
+  var userAgent = typeof navigator == "object" ? navigator.userAgent : "";
+  if (userAgent.indexOf("Trident/") == -1) return hooks;
+
+  var getTag = hooks.getTag;
+
+  var quickMap = {
+    "BeforeUnloadEvent": "Event",
+    "DataTransfer": "Clipboard",
+    "HTMLDDElement": "HTMLElement",
+    "HTMLDTElement": "HTMLElement",
+    "HTMLPhraseElement": "HTMLElement",
+    "Position": "Geoposition"
+  };
+
+  function getTagIE(o) {
+    var tag = getTag(o);
+    var newTag = quickMap[tag];
+    if (newTag) return newTag;
+    if (tag == "Object") {
+      if (window.DataView && (o instanceof window.DataView)) return "DataView";
+    }
+    return tag;
+  }
+
+  function prototypeForTagIE(tag) {
+    var constructor = window[tag];
+    if (constructor == null) return null;
+    return constructor.prototype;
+  }
+
+  hooks.getTag = getTagIE;
+  hooks.prototypeForTag = prototypeForTagIE;
+}
+C.hq=function(getTagFallback) {
+  return function(hooks) {
+    if (typeof navigator != "object") return hooks;
+
+    var ua = navigator.userAgent;
+    if (ua.indexOf("DumpRenderTree") >= 0) return hooks;
+    if (ua.indexOf("Chrome") >= 0) {
+      function confirm(p) {
+        return typeof window == "object" && window[p] && window[p].name == p;
+      }
+      if (confirm("Window") && confirm("HTMLElement")) return hooks;
+    }
+
+    hooks.getTag = getTagFallback;
+  };
+}
 C.c6=new P.Jh(null,null)
 C.hs=new P.Jj(null)
 C.f_=new U.Gz([null])

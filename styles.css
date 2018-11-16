@@ -10,3 +10,13 @@ body {
 * {
   font-family: Roboto, Helvetica, Arial, sans-serif;
 }
+
+code {
+  font-family: Courier New, monospace;
+  font-size: 15px;
+  padding: 10px;
+  margin: 5px 0;
+  display: inline-block;
+  background: #ebebeb;
+  border-radius: 3px;
+}
