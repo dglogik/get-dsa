@@ -2304,8 +2304,8 @@ z["-"+v]=s
 z["+"+v]=s
 z["*"+v]=s}}},
 Wm:function(){var z,y,x,w,v,u,t
-z=C.hl()
-z=H.fE(C.hm,H.fE(C.hn,H.fE(C.d6,H.fE(C.d6,H.fE(C.hp,H.fE(C.ho,H.fE(C.hq(C.d7),z)))))))
+z=C.ho()
+z=H.fE(C.hl,H.fE(C.hq,H.fE(C.d6,H.fE(C.d6,H.fE(C.hp,H.fE(C.hm,H.fE(C.hn(C.d7),z)))))))
 if(typeof dartNativeDispatchHooksTransformer!="undefined"){y=dartNativeDispatchHooksTransformer
 if(typeof y=="function")y=[y]
 if(y.constructor==Array)for(x=0;x<y.length;++x){w=y[x]
@@ -29343,7 +29343,7 @@ z=this.a
 y=J.hL(J.c1(z.r.gaS()))
 P.lN("Changed platform help to: "+H.i(y))
 x=J.Y(y)
-w=x.ab(y,"windows")===!0?"    <p>\n    Navigate to the dsa-server folder in the extracted ZIP location.<br/>\n    Open a new Command Prompt here.<br/>\n    Run the following command:<br/>\n    <code>\n    bin\\daemon.bat start\n    </code><br/>\n  You will be able to access DGLux at: http://localhost:8080<br/>\n  Default credentials are: dgSuper / dg1234<br/>\n    </p>\n\n    <p>Your DSA instance is now running!</p>\n    ":"  <p>\n  Open a Terminal and change to the dsa-server directory in the extracted ZIP location.<br/>\n  Run the following commands:<br/>\n  <code>\n  chmod 777 bin/*.sh<br/>\n  ./bin/daemon.sh start\n  </code><br/>\n  You will be able to access DGLux at: http://localhost:8080<br/>\n  Default credentials are: dgSuper / dg1234<br/>\n  </p>\n\n  <p>Your DSA instance is now running!</p>\n  "
+w=x.ab(y,"windows")===!0?'    <p>\n    Navigate to the dsa-server folder in the extracted ZIP location.<br/>\n    Open a new Command Prompt here.<br/>\n    Run the following command:<br/>\n    <code>\n    bin\\daemon.bat start\n    </code><br/>\n  You will be able to access DGLux at: http://localhost:8080<br/>\n  Default credentials are: dgSuper / dg1234<br/>\n    </p>\n\n    <p>Your DSA instance is now running!</p>\n    \n    <p>\n    Install as a service:<br/>\n    In the search bar on your start menu, type in "cmd"<br />\n    Locate command prompt, right click on it, and choose "Run as administrator"<br />\n    Change to the dsa-server folder extracted form the ZIP.<br />\n    Eg: <code>cd C:\\dsa\\dsa-server</code><br />\n    Run the following command:<br/>\n    <code>\n    bin\\daemon.bat install-service\n    </code><br />\n    Open the "services" application and confirm you see "DGLux Service" now listed.\n    </p>\n    ':"  <p>\n  Open a Terminal and change to the dsa-server directory in the extracted ZIP location.<br/>\n  Run the following commands:<br/>\n  <code>\n  chmod 777 bin/*.sh<br/>\n  ./bin/daemon.sh start\n  </code><br/>\n  You will be able to access DGLux at: http://localhost:8080<br/>\n  Default credentials are: dgSuper / dg1234<br/>\n  </p>\n\n  <p>Your DSA instance is now running!</p>\n  "
 z.a="  <h3>Installation Instructions</h3>\n  Extract the ZIP file provided by the Get DSA Packager.<br/>\n  "+(x.ab(y,"android")===!0?"    <p>\n    Ensure you have ADB installed and your device is plugged in.<br/>\n    Open a new command line.<br/>\n    Navigate to the root folder of the extracted ZIP location.<br/>\n    Run the following command:<br/>\n    <code>\n    bash install.sh<br/>\n    bash run.sh\n    </code><br/>\n  You should be able to access DGLux at: http://device-ip:8080<br/>\n  Default credentials are: dgSuper / dg1234<br/>\n    </p>\n\n    <p>Your DSA instance is now running on Android!</p>\n    ":w)+"\n  "},null,null,2,0,null,36,"call"]},Fd:{"^":"a:1;a",
 $1:[function(a){var z=this.a.ch
 C.b.am(z,J.eZ(a,new Q.F3()))
@@ -33112,14 +33112,126 @@ C.h7=new L.fb("check_box")
 C.d2=new L.fb("check_box_outline_blank")
 C.h8=new L.fb("radio_button_checked")
 C.d3=new L.fb("radio_button_unchecked")
-C.hl=function() {  var toStringFunction = Object.prototype.toString;  function getTag(o) {    var s = toStringFunction.call(o);    return s.substring(8, s.length - 1);  }  function getUnknownTag(object, tag) {    if (/^HTML[A-Z].*Element$/.test(tag)) {      var name = toStringFunction.call(object);      if (name == "[object Object]") return null;      return "HTMLElement";    }  }  function getUnknownTagGenericBrowser(object, tag) {    if (self.HTMLElement && object instanceof HTMLElement) return "HTMLElement";    return getUnknownTag(object, tag);  }  function prototypeForTag(tag) {    if (typeof window == "undefined") return null;    if (typeof window[tag] == "undefined") return null;    var constructor = window[tag];    if (typeof constructor != "function") return null;    return constructor.prototype;  }  function discriminator(tag) { return null; }  var isBrowser = typeof navigator == "object";  return {    getTag: getTag,    getUnknownTag: isBrowser ? getUnknownTagGenericBrowser : getUnknownTag,    prototypeForTag: prototypeForTag,    discriminator: discriminator };}
+C.hl=function(hooks) {
+  if (typeof dartExperimentalFixupGetTag != "function") return hooks;
+  hooks.getTag = dartExperimentalFixupGetTag(hooks.getTag);
+}
+C.hm=function(hooks) {
+  var userAgent = typeof navigator == "object" ? navigator.userAgent : "";
+  if (userAgent.indexOf("Firefox") == -1) return hooks;
+  var getTag = hooks.getTag;
+  var quickMap = {
+    "BeforeUnloadEvent": "Event",
+    "DataTransfer": "Clipboard",
+    "GeoGeolocation": "Geolocation",
+    "Location": "!Location",
+    "WorkerMessageEvent": "MessageEvent",
+    "XMLDocument": "!Document"};
+  function getTagFirefox(o) {
+    var tag = getTag(o);
+    return quickMap[tag] || tag;
+  }
+  hooks.getTag = getTagFirefox;
+}
 C.d6=function(hooks) { return hooks; }
-C.hm=function(hooks) {  if (typeof dartExperimentalFixupGetTag != "function") return hooks;  hooks.getTag = dartExperimentalFixupGetTag(hooks.getTag);}
-C.hn=function(hooks) {  var getTag = hooks.getTag;  var prototypeForTag = hooks.prototypeForTag;  function getTagFixed(o) {    var tag = getTag(o);    if (tag == "Document") {      // "Document", so we check for the xmlVersion property, which is the empty      if (!!o.xmlVersion) return "!Document";      return "!HTMLDocument";    }    return tag;  }  function prototypeForTagFixed(tag) {    if (tag == "Document") return null;    return prototypeForTag(tag);  }  hooks.getTag = getTagFixed;  hooks.prototypeForTag = prototypeForTagFixed;}
-C.ho=function(hooks) {  var userAgent = typeof navigator == "object" ? navigator.userAgent : "";  if (userAgent.indexOf("Firefox") == -1) return hooks;  var getTag = hooks.getTag;  var quickMap = {    "BeforeUnloadEvent": "Event",    "DataTransfer": "Clipboard",    "GeoGeolocation": "Geolocation",    "Location": "!Location",    "WorkerMessageEvent": "MessageEvent",    "XMLDocument": "!Document"};  function getTagFirefox(o) {    var tag = getTag(o);    return quickMap[tag] || tag;  }  hooks.getTag = getTagFirefox;}
-C.d7=function getTagFallback(o) {  var s = Object.prototype.toString.call(o);  return s.substring(8, s.length - 1);}
-C.hp=function(hooks) {  var userAgent = typeof navigator == "object" ? navigator.userAgent : "";  if (userAgent.indexOf("Trident/") == -1) return hooks;  var getTag = hooks.getTag;  var quickMap = {    "BeforeUnloadEvent": "Event",    "DataTransfer": "Clipboard",    "HTMLDDElement": "HTMLElement",    "HTMLDTElement": "HTMLElement",    "HTMLPhraseElement": "HTMLElement",    "Position": "Geoposition"  };  function getTagIE(o) {    var tag = getTag(o);    var newTag = quickMap[tag];    if (newTag) return newTag;    if (tag == "Object") {      if (window.DataView && (o instanceof window.DataView)) return "DataView";    }    return tag;  }  function prototypeForTagIE(tag) {    var constructor = window[tag];    if (constructor == null) return null;    return constructor.prototype;  }  hooks.getTag = getTagIE;  hooks.prototypeForTag = prototypeForTagIE;}
-C.hq=function(getTagFallback) {  return function(hooks) {    if (typeof navigator != "object") return hooks;    var ua = navigator.userAgent;    if (ua.indexOf("DumpRenderTree") >= 0) return hooks;    if (ua.indexOf("Chrome") >= 0) {      function confirm(p) {        return typeof window == "object" && window[p] && window[p].name == p;      }      if (confirm("Window") && confirm("HTMLElement")) return hooks;    }    hooks.getTag = getTagFallback;  };}
+
+C.hn=function(getTagFallback) {
+  return function(hooks) {
+    if (typeof navigator != "object") return hooks;
+    var ua = navigator.userAgent;
+    if (ua.indexOf("DumpRenderTree") >= 0) return hooks;
+    if (ua.indexOf("Chrome") >= 0) {
+      function confirm(p) {
+        return typeof window == "object" && window[p] && window[p].name == p;
+      }
+      if (confirm("Window") && confirm("HTMLElement")) return hooks;
+    }
+    hooks.getTag = getTagFallback;
+  };
+}
+C.ho=function() {
+  var toStringFunction = Object.prototype.toString;
+  function getTag(o) {
+    var s = toStringFunction.call(o);
+    return s.substring(8, s.length - 1);
+  }
+  function getUnknownTag(object, tag) {
+    if (/^HTML[A-Z].*Element$/.test(tag)) {
+      var name = toStringFunction.call(object);
+      if (name == "[object Object]") return null;
+      return "HTMLElement";
+    }
+  }
+  function getUnknownTagGenericBrowser(object, tag) {
+    if (self.HTMLElement && object instanceof HTMLElement) return "HTMLElement";
+    return getUnknownTag(object, tag);
+  }
+  function prototypeForTag(tag) {
+    if (typeof window == "undefined") return null;
+    if (typeof window[tag] == "undefined") return null;
+    var constructor = window[tag];
+    if (typeof constructor != "function") return null;
+    return constructor.prototype;
+  }
+  function discriminator(tag) { return null; }
+  var isBrowser = typeof navigator == "object";
+  return {
+    getTag: getTag,
+    getUnknownTag: isBrowser ? getUnknownTagGenericBrowser : getUnknownTag,
+    prototypeForTag: prototypeForTag,
+    discriminator: discriminator };
+}
+C.hp=function(hooks) {
+  var userAgent = typeof navigator == "object" ? navigator.userAgent : "";
+  if (userAgent.indexOf("Trident/") == -1) return hooks;
+  var getTag = hooks.getTag;
+  var quickMap = {
+    "BeforeUnloadEvent": "Event",
+    "DataTransfer": "Clipboard",
+    "HTMLDDElement": "HTMLElement",
+    "HTMLDTElement": "HTMLElement",
+    "HTMLPhraseElement": "HTMLElement",
+    "Position": "Geoposition"
+  };
+  function getTagIE(o) {
+    var tag = getTag(o);
+    var newTag = quickMap[tag];
+    if (newTag) return newTag;
+    if (tag == "Object") {
+      if (window.DataView && (o instanceof window.DataView)) return "DataView";
+    }
+    return tag;
+  }
+  function prototypeForTagIE(tag) {
+    var constructor = window[tag];
+    if (constructor == null) return null;
+    return constructor.prototype;
+  }
+  hooks.getTag = getTagIE;
+  hooks.prototypeForTag = prototypeForTagIE;
+}
+C.hq=function(hooks) {
+  var getTag = hooks.getTag;
+  var prototypeForTag = hooks.prototypeForTag;
+  function getTagFixed(o) {
+    var tag = getTag(o);
+    if (tag == "Document") {
+      if (!!o.xmlVersion) return "!Document";
+      return "!HTMLDocument";
+    }
+    return tag;
+  }
+  function prototypeForTagFixed(tag) {
+    if (tag == "Document") return null;
+    return prototypeForTag(tag);
+  }
+  hooks.getTag = getTagFixed;
+  hooks.prototypeForTag = prototypeForTagFixed;
+}
+C.d7=function getTagFallback(o) {
+  var s = Object.prototype.toString.call(o);
+  return s.substring(8, s.length - 1);
+}
 C.c6=new P.Jf(null,null)
 C.hs=new P.Jh(null)
 C.f_=new U.Gx([null])
